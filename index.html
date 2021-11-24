@@ -21,14 +21,11 @@
             <i class="fa fa-file"></i>
             <b>Document Manager</b>
         </div>
-<button id="addRow">Add new row</button>
 <table id="documentTable" class="" width="100%"></table>
         
         
       
 <script>
-var dataSet = [
-];
     
 $(document).ready(function() {
     var t = $('#documentTable').DataTable(
@@ -49,43 +46,53 @@ $(document).ready(function() {
                 width: "25px",
                 render: function(data, type, row) {
                     if (type === "display") {
-                        return '<input  type="text" placeholder="" name="Index" value="XX.YY.ZZ">';
+                        return '<a  name="Index">1.2.1</a>';
                     }
                     return data;
                 }
             },
-            {   data: "Sign Out",
-                title: "Sign Out",
+            {   data: "Section Title",
+                title: "Section Title",
                 width: "100px",
                 render: function(data, type, row) {
                     if (type === "display") {
-                        return '<input  type="time" placeholder="" name="Sign Out" value="15:36">';
+                        return '<input  type="text" placeholder="" name="Section Title" value="">';
                     }
                     return data;
                 }
             },
-            {   data: "Job Number",
-                title: "Job Number",
-                width: "150px",
-                render: function(data, type, row) {
-                    if (type === "display") {
-                        return '<input  type="text" placeholder="" name="Job Number" value="1234567">';
-                    }
-                    return data;
-                }
-            },
-            {   data: "Job Description",
-                title: "Job Description",
+            {   data: "Section Description",
+                title: "Section Description",
                 width: "auto",
                 render: function(data, type, row) {
                     if (type === "display") {
-                        return '<input  type="text" class="autoWidthInput" placeholder="" name="Job Description" value="">';
+                        return '<input  type="text" class="autoWidthInput" placeholder="" name="Section Description" value="">';
                     }
                     return data;
                 }
             },
-            {   data: "Documents",
-                title: "Documents",
+            {   data: "Revision",
+                title: "Revision",
+                width: "10px",
+                render: function(data, type, row) {
+                    if (type === "display") {
+                        return '<input  type="text" placeholder="" name="Revision" value="">';
+                    }
+                    return data;
+                }
+            },
+            {   data: "Last Updated",
+                title: "Last Updated",
+                width: "50px",
+                render: function(data, type, row) {
+                    if (type === "display") {
+                        return '<a  name="Last Updated">12-05-2021</a>';
+                    }
+                    return data;
+                }
+            },
+            {   data: "Document",
+                title: "Document",
                 width: "50px",
                 render: function(data, type, row) {
                     if (type === "display") {
@@ -93,19 +100,24 @@ $(document).ready(function() {
                     }
                     return data;
                 }
-            },
-            {   data: "Edit",
-                title: "Edit",
-                width: "50px",
-                render: function(data, type, row) {
-                    if (type === "display") {
-                        return '<i class="fa fa-edit"></i>';
-                    }
-                    return data;
-                }
             }
         ]
     } );
+    
+     $('#addRow').on( 'click', function () {
+        t.rows.add( [{
+            "Select":"1",
+            "Index":"1.3.1",
+            "Title":"Table of Contents",
+            "Section Description":"Lists the overall table of contents",
+            "Revision":"3",
+            "Last Updated":"24-04-2021",
+            "Document":""
+        } ] ).draw( false );
+     } );
+ 
+    // Automatically add a first row of data
+    $('#addRow').click();
     
     // Add default data when adding a new column
     $('#example').on('change', 'input', function () {
