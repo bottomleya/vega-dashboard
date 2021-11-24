@@ -161,7 +161,7 @@ $(document).ready(function() {
         var aTR = t.rows().nodes();
         for (var i=0; i < aTR.length; i++) {
             console.log($(aTR[i]).find('input'));
-            if($(aTR[i]).find('input').checked) {
+            if($(aTR[i]).find('input')[0].checked) {
                 console.log($(aTR[i]).find('a[name="Index"]'));
             }
         }
