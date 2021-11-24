@@ -159,11 +159,10 @@ $(document).ready(function() {
     // Add compile function defined w.r.t. the created datatable on button click
     $('#compileBtn').click(function() {
         var aTR = t.rows().nodes();
-            for (var i=0; i < aTR.length; i++) {
-                console.log($(aTR[i]).find('tr'));
-            }
+        for (var i=0; i < aTR.length; i++) {
+            console.log($(aTR[i]).find('tr'));
         }
-     )
+    });
     
                      
     // Add default data when adding a new column
