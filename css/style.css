@@ -76,11 +76,11 @@ table.dataTable.display tbody tr.odd>.sorting_1 {
   display: inline-flex;
   flex-direction: column;
   font-family: expo-brand-demi,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-  font-size: 25px;
+  font-size: 18px;
   height: 52px;
   justify-content: center;
   line-height: 1;
-  margin: 0;
+  margin: 20px;
   outline: none;
   overflow: hidden;
   padding: 0 32px;
