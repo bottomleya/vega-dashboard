@@ -167,11 +167,11 @@ $(document).ready(function() {
     });
     
                      
-    // Add default data when adding a new column
+    // Log any changes to the table
     $('#documentTable').on('change', 'input', function () {
-    var input = $(this).closest('input');
-    console.log($(input).val());
-  });
+        var input = $(this).closest('input');
+        console.log("DataTable edited " + $(input).name + " set to " + $(input).val());
+    });
 } );
         </script>
       
