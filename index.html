@@ -21,7 +21,7 @@
             <i class="fa fa-file"></i>
             <b>Document Manager</b>
         </div>
-        <button class="button-84" type="button" onclick="compile()">Compile</button>
+        <button class="button-84" type="button" role="button" id="compileBtn>Compile</button>
 <table id="documentTable" class="hover" width="100%"></table>
         
         
@@ -156,14 +156,16 @@ $(document).ready(function() {
         t.rows.add(dataset[i]).draw( false );
     }
     
-    // Add compile function defined w.r.t. the created datatable
-    function compile() {
+    // Add compile function defined w.r.t. the created datatable on button click
+    $('#compileBtn').click(function() {
         var aTR = t.rows().nodes();
-        for (var i=0; i < aTR.length; i++) {
-            console.log($(aTR[i]).find('tr'));
+            for (var i=0; i < aTR.length; i++) {
+                console.log($(aTR[i]).find('tr'));
+            }
         }
-    }
+     )
     
+                     
     // Add default data when adding a new column
     $('#documentTable').on('change', 'input', function () {
     var input = $(this).closest('input');
