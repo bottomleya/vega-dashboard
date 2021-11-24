@@ -160,7 +160,8 @@ $(document).ready(function() {
     $('#compileBtn').click(function() {
         var aTR = t.rows().nodes();
         for (var i=0; i < aTR.length; i++) {
-            console.log($(aTR[i]).find('tr'));
+            console.log($(aTR[i]).find('input'));
+            console.log($(aTR[i]).find('input').checked);
         }
     });
     
