@@ -18,41 +18,38 @@
     </head>
     <body>
         <div id="header">
-            Document Manager
+            <i class="fa fa-file"></i>
+            <b>Document Manager</b>
         </div>
 <button id="addRow">Add new row</button>
-<table id="example" class="" width="100%"></table>
+<table id="documentTable" class="" width="100%"></table>
         
         
       
 <script>
 var dataSet = [
 ];
-var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = today.getFullYear();
     
 $(document).ready(function() {
-    var t = $('#example').DataTable(
+    var t = $('#documentTable').DataTable(
     {
         columns: [
-            {   data: "Date",
-                title: "Date",
-                width: "100px",
+            {   data: "Select",
+                title: "Select",
+                width: "10px",
                 render: function(data, type, row) {
                     if (type === "display") {
-                        return '<input  type="date" placeholder="" name="Date" value="'+yyyy+'-'+mm+'-'+dd+'">';
+                        return '<input type="checkbox" placeholder="">';
                     }
                     return data;
                 }
             },
-            {   data: "Sign In",
-                title: "Sign In",
-                width: "100px",
+            {   data: "Index",
+                title: "Index",
+                width: "25px",
                 render: function(data, type, row) {
                     if (type === "display") {
-                        return '<input  type="time" placeholder="" name="Sign In" value="08:00">';
+                        return '<input  type="text" placeholder="" name="Index" value="XX.YY.ZZ">';
                     }
                     return data;
                 }
@@ -109,20 +106,6 @@ $(document).ready(function() {
             }
         ]
     } );
-    $('#addRow').on( 'click', function () {
-        t.rows.add( [{
-            "Date":"01/01/2021",
-            "Sign In":"08:00 AM",
-            "Sign Out":"03:36 PM",
-            "Job Number":"1234567",
-            "Job Description":"",
-            "Documents":"",
-            "Edit":""
-        } ] ).draw( false );
-     } );
- 
-    // Automatically add a first row of data
-    $('#addRow').click();
     
     // Add default data when adding a new column
     $('#example').on('change', 'input', function () {
