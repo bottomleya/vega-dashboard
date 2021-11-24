@@ -61,7 +61,7 @@ $(document).ready(function() {
                 width: "400px",
                 render: function(data, type, row) {
                     if (type === "display") {
-                        return '<a  name="Section Title">'+data+'</a>';
+                        return '<a  name="Section Title" class="left-align">'+data+'</a>';
                     }
                     return data;
                 }
@@ -71,7 +71,7 @@ $(document).ready(function() {
                 width: "auto",
                 render: function(data, type, row) {
                     if (type === "display") {
-                        return '<a  name="Section Description" class="autoWidth">'+data+'</a>';
+                        return '<a  name="Section Description" class="autoWidth left-align">'+data+'</a>';
                     }
                     return data;
                 }
