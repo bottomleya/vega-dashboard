@@ -65,52 +65,54 @@ table.dataTable.display tbody tr.odd>.sorting_1 {
 <!-- HTML !-->
 <button class="button-59" role="button">Button 59</button>
 
+<!-- HTML !-->
+<button class="button-84" role="button">Button 84</button>
+
 /* CSS */
-.button-59 {
+.button-84 {
   align-items: center;
-  background-color: #fff;
-  border: 2px solid #000;
+  background-color: initial;
+  background-image: linear-gradient(#464d55, #25292e);
+  border-radius: 8px;
+  border-width: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .1),0 3px 6px rgba(0, 0, 0, .05);
   box-sizing: border-box;
-  color: #000;
+  color: #fff;
   cursor: pointer;
   display: inline-flex;
-  fill: #000;
-  font-family: Inter,sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  height: 48px;
+  flex-direction: column;
+  font-family: expo-brand-demi,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 18px;
+  height: 52px;
   justify-content: center;
-  letter-spacing: -.8px;
-  line-height: 24px;
-  min-width: 140px;
-  outline: 0;
-  padding: 0 17px;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 32px;
   text-align: center;
   text-decoration: none;
-  transition: all .3s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+  transform: translate3d(0, 0, 0);
+  transition: all 150ms;
+  vertical-align: baseline;
+  white-space: nowrap;
 }
 
-.button-59:focus {
-  color: #171e29;
+.button-84:hover {
+  box-shadow: rgba(0, 1, 0, .2) 0 2px 8px;
+  opacity: .85;
 }
 
-.button-59:hover {
-  border-color: #06f;
-  color: #06f;
-  fill: #06f;
+.button-84:active {
+  outline: 0;
 }
 
-.button-59:active {
-  border-color: #06f;
-  color: #06f;
-  fill: #06f;
+.button-84:focus {
+  box-shadow: rgba(0, 0, 0, .5) 0 0 0 3px;
 }
 
-@media (min-width: 768px) {
-  .button-59 {
-    min-width: 170px;
+@media (max-width: 420px) {
+  .button-84 {
+    height: 48px;
   }
 }
