@@ -33,13 +33,7 @@
         alert("Opening Document");
     }
     
-    function compile() {
-        var aTR = t.rows().nodes();
-        
-        for (var i=0; i < aTR.length; i++) {
-            console.log($(aTR[i]).find('tr'));
-        }
-    }
+
     
 $(document).ready(function() {
     var t = $('#documentTable').DataTable(
@@ -162,6 +156,13 @@ $(document).ready(function() {
         t.rows.add(dataset[i]).draw( false );
     }
     
+    // Add compile function defined w.r.t. the created datatable
+    function compile() {
+        var aTR = t.rows().nodes();
+        for (var i=0; i < aTR.length; i++) {
+            console.log($(aTR[i]).find('tr'));
+        }
+    }
     
     // Add default data when adding a new column
     $('#documentTable').on('change', 'input', function () {
