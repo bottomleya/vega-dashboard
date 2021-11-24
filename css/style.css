@@ -101,6 +101,7 @@ table.dataTable.display tbody tr.odd>.sorting_1 {
 .button-84:hover {
   box-shadow: rgba(0, 1, 0, .2) 0 2px 8px;
   opacity: .85;
+  cursor: pointer;
 }
 
 .button-84:active {
