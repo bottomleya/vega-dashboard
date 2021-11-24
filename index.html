@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,500">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+
+        <script src="js/jquery-3.5.1.js"></script>
+        <script src="js/jquery.dataTables.min.js"></script>
+
+        <title>timesheet | JQuery DataTable Test</title>
+        
+    </head>
+    <body>
+<button id="addRow">Add new row</button>
+<table id="example" class="" width="100%"></table>
+        
+        
+      
+<script>
+var dataSet = [
+];
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+    
+$(document).ready(function() {
+    var t = $('#example').DataTable(
+    {
+        columns: [
+            {   data: "Date",
+                title: "Date",
+                width: "100px",
+                render: function(data, type, row) {
+                    if (type === "display") {
+                        return '<input  type="date" placeholder="" name="Date" value="'+yyyy+'-'+mm+'-'+dd+'">';
+                    }
+                    return data;
+                }
+            },
+            {   data: "Sign In",
+                title: "Sign In",
+                width: "100px",
+                render: function(data, type, row) {
+                    if (type === "display") {
+                        return '<input  type="time" placeholder="" name="Sign In" value="08:00">';
+                    }
+                    return data;
+                }
+            },
+            {   data: "Sign Out",
+                title: "Sign Out",
+                width: "100px",
+                render: function(data, type, row) {
+                    if (type === "display") {
+                        return '<input  type="time" placeholder="" name="Sign Out" value="15:36">';
+                    }
+                    return data;
+                }
+            },
+            {   data: "Job Number",
+                title: "Job Number",
+                width: "150px",
+                render: function(data, type, row) {
+                    if (type === "display") {
+                        return '<input  type="text" placeholder="" name="Job Number" value="1234567">';
+                    }
+                    return data;
+                }
+            },
+            {   data: "Job Description",
+                title: "Job Description",
+                width: "auto",
+                render: function(data, type, row) {
+                    if (type === "display") {
+                        return '<input  type="text" class="autoWidthInput" placeholder="" name="Job Description" value="">';
+                    }
+                    return data;
+                }
+            },
+            {   data: "Documents",
+                title: "Documents",
+                width: "50px",
+                render: function(data, type, row) {
+                    if (type === "display") {
+                        return '<i class="fa fa-file-o"></i>';
+                    }
+                    return data;
+                }
+            },
+            {   data: "Edit",
+                title: "Edit",
+                width: "50px",
+                render: function(data, type, row) {
+                    if (type === "display") {
+                        return '<i class="fa fa-edit"></i>';
+                    }
+                    return data;
+                }
+            }
+        ]
+    } );
+    $('#addRow').on( 'click', function () {
+        t.rows.add( [{
+            "Date":"01/01/2021",
+            "Sign In":"08:00 AM",
+            "Sign Out":"03:36 PM",
+            "Job Number":"1234567",
+            "Job Description":"",
+            "Documents":"",
+            "Edit":""
+        } ] ).draw( false );
+     } );
+ 
+    // Automatically add a first row of data
+    $('#addRow').click();
+    
+    // Add default data when adding a new column
+    $('#example').on('change', 'input', function () {
+    var input = $(this).closest('input');
+    console.log($(input).val());
+  });
+} );
+        </script>
+      
+</body>
+</html>

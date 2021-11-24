@@ -1,0 +1,36 @@
+body {
+    background-color: #262523;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+td {
+    text-align: center;
+    margin: auto;
+    vertical-align: middle;
+    color: #bfbfbf;
+    background-color: #555555;
+}
+
+th {
+    background-color: #33485D;
+    color: #ffffff;
+}
+
+label {
+    color: #ffffff;
+}
+
+input {
+    background-color: #e8e8e8;
+    color: #666666;
+    width: 100%;
+}
+
+select {
+    background-color: #e8e8e8;
+    color: #666666;
+}
+
+table.dataTable.display tbody tr.odd>.sorting_1 {
+    background-color: #949494;
+}
