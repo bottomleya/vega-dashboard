@@ -28,6 +28,10 @@
       
 <script>
     
+    function openDocument() {
+        alert("Opening Document");
+    }
+    
 $(document).ready(function() {
     var t = $('#documentTable').DataTable(
     {
@@ -84,7 +88,7 @@ $(document).ready(function() {
             },
             {   data: "Last Updated",
                 title: "Last Updated",
-                width: "50px",
+                width: "150px",
                 render: function(data, type, row) {
                     if (type === "display") {
                         return '<a  name="Last Updated">12-05-2021</a>';
@@ -97,7 +101,7 @@ $(document).ready(function() {
                 width: "50px",
                 render: function(data, type, row) {
                     if (type === "display") {
-                        return '<i class="fa fa-file-o"></i>';
+                        return '<i class="fa fa-file" onclick="openDocument()"></i>';
                     }
                     return data;
                 }
