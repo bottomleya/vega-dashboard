@@ -31,6 +31,10 @@ th {
 
 label {
     color: #ffffff;
+    text-align: right;
+    clear: both;
+    float:left;
+    margin-right:15px;
 }
 
 input {
