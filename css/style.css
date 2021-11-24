@@ -24,6 +24,10 @@ td {
     background-color: #555555;
 }
 
+.left-align {
+    text-align: left;
+}
+
 th {
     background-color: #33485D;
     color: #ffffff;
