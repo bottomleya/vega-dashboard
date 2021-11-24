@@ -159,19 +159,17 @@ $(document).ready(function() {
     // Add compile function defined w.r.t. the created datatable on button click
     $('#compileBtn').click(function() {
         var aTR = t.rows().nodes();
+        var docSections = new Array();
         for (var i=0; i < aTR.length; i++) {
             if($(aTR[i]).find('input')[0].checked) {
                 console.log($(aTR[i]).find('a[name="Index"]')[0].innerText);
+                docSections.append($(aTR[i]).find('a[name="Index"]')[0].innerText);
             }
         }
+        console.log(docSections);
     });
     
-                     
-    // Log any changes to the table
-    $('#documentTable').on('change', 'input', function () {
-        var input = $(this).closest('input');
-        console.log("DataTable edited " + $(input).name + " set to " + $(input).val());
-    });
+        
 } );
         </script>
       
