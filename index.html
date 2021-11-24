@@ -51,7 +51,7 @@ $(document).ready(function() {
                 width: "25px",
                 render: function(data, type, row) {
                     if (type === "display") {
-                        return '<a  name="Index">1.2.1</a>';
+                        return '<a  name="Index">'+data[0]["Index"]+'</a>';
                     }
                     return data;
                 }
