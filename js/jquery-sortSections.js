@@ -7,11 +7,13 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
 	"section-pre": function ( a ) {
 		var i, item;
 		var m;
+		var x;
 
 		if (!a) {
 			return 0
 		}
 		
+		x = "";
 
 		a = a.replace(/<[\s\S]*?>/g, "");
 		
