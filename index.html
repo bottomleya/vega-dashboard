@@ -159,13 +159,15 @@ $(document).ready(function() {
     // Add compile function defined w.r.t. the created datatable on button click
     $('#compileBtn').click(function() {
         var aTR = t.rows().nodes();
-        var docSections = [];
+        var docSections = {};
         for (var i=0; i < aTR.length; i++) {
             if($(aTR[i]).find('input')[0].checked) {
-                console.log($(aTR[i]).find('a[name="Index"]')[0].innerText);
-                docSections.push($(aTR[i]).find('a[name="Index"]')[0].innerText);
+                index = $(aTR[i]).find('a[name="Index"]')[0].innerText;
+                title = $(aTR[i]).find('a[name="Section Title"]')[0].innerText;
+                docSections[index] = title;
             }
         }
+        alert("Printing the following sections: " + docSections)
         console.log(docSections);
     });
     
