@@ -92,6 +92,16 @@ $(document).ready(function() {
                     return data;
                 }
             },
+            {   data: "Status",
+                title: "Status",
+                width: "100px",
+                render: function(data, type, row) {
+                    if (type === "display") {
+                        return '<a  name="Status">'+data+'</a>';
+                    }
+                    return data;
+                }
+            },
             {   data: "Last Updated",
                 title: "Last Updated",
                 width: "150px",
@@ -103,6 +113,16 @@ $(document).ready(function() {
                 }
             },
             {   data: "Document",
+                title: "Document",
+                width: "30px",
+                render: function(data, type, row) {
+                    if (type === "display") {
+                        return '<i class="fa fa-file" onclick="openDocument()"></i>';
+                    }
+                    return data;
+                }
+            },
+            {   data: "Prev. Revision",
                 title: "Document",
                 width: "30px",
                 render: function(data, type, row) {
@@ -133,8 +153,10 @@ $(document).ready(function() {
         "Section Title":"Table of Contents",
         "Section Description":"Lists the overall table of contents",
         "Revision":"3",
+        "Status":"Approved",
         "Last Updated":"24-04-2021",
         "Document":"",
+        "Prev. Revision":"",
         "Pages":5
         }],
         [{
@@ -143,8 +165,10 @@ $(document).ready(function() {
         "Section Title":"Plantroom 1 Functional Description",
         "Section Description":"Plantroom 1 Functional Description",
         "Revision":"2a",
+        "Status":"Updated with new electrical meters",
         "Last Updated":"24-04-2021",
         "Document":"",
+        "Prev. Revision":"",
         "Pages":15
         }],
         [{
@@ -153,8 +177,10 @@ $(document).ready(function() {
         "Section Title":"Plantroom 2 Functional Description",
         "Section Description":"Plantroom 2 Functional Description",
         "Revision":"2a",
+        "Status":"For Approval",
         "Last Updated":"24-04-2021",
         "Document":"",
+        "Prev. Revision":"",
         "Pages":30
         }],
         [{
@@ -163,8 +189,10 @@ $(document).ready(function() {
         "Section Title":"Plantroom 2 Functional Description",
         "Section Description":"Plantroom 2 Functional Description",
         "Revision":"2a",
+        "Status":"Approved",
         "Last Updated":"24-04-2021",
         "Document":"",
+        "Prev. Revision":"",
         "Pages":03
         }]
     ]
