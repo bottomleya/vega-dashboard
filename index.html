@@ -180,7 +180,7 @@ $(document).ready(function() {
                 index = $(aTR[i]).find('a[name="Index"]')[0].innerText;
                 title = $(aTR[i]).find('a[name="Section Title"]')[0].innerText;
                 docSections[index] = title;
-                sectionsTxt = "\u2022" + sectionxTxt + index + ": " + title + "\n";
+                sectionsTxt = "\u2022" + sectionsTxt + index + ": " + title + "\n";
             }
         }
         alert("Printing the following sections: \n" + sectionsTxt)
