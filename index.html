@@ -191,12 +191,21 @@ $(document).ready(function() {
         $.confirm({
             title: 'Confirm!',
             content: "Printing the following sections: \n" + sectionsTxt,
+            boxWidth: '30%',
+            useBootstrap: false,
             buttons: {
-                confirm: function () {
-                    $.alert('Confirmed!');
+                confirm: 
+                    text: "Proceed",
+                    btnClass: "btn-blue",
+                    action: function () {
+                        $.alert('Please wait whilst compilation completes...');
+                    }   
                 },
-                cancel: function () {
-                    $.alert('Canceled!');
+                cancel: 
+                    text: "Cancel",
+                    action: function () {
+                        $.alert('Canceled!');
+                    }
                 }
             }
         });
