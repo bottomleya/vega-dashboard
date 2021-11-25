@@ -21,12 +21,17 @@
 jQuery.extend( jQuery.fn.dataTableExt.oSort, {
 	"ip-address-pre": function ( a ) {
 		var i, item;
-		var m, n, t;
+		var m, n;
 		var x, xa;
 
 		if (!a) {
 			return 0
 		}
+		
+		m = a.split(".");
+		n = a.split(":");
+		x = "";
+		xa = "";
 
 		a = a.replace(/<[\s\S]*?>/g, "");
 		
