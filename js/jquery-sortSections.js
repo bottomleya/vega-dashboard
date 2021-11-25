@@ -1,39 +1,21 @@
 /**
- * Sorts a column containing IP addresses (IPv4 and IPv6) or IPv4 address and port delimited by ':' in typical dot
- * notation / colon. This can be most useful when using DataTables for a
- * networking application, and reporting information containing IP address.
- *
- *  @name IP addresses 
- *  @summary Sort IP addresses numerically
- *  @author Dominique Fournier
- *  @author Brad Wasson
- *  @author Peter Vilhan
- *
- *  @example
- *    $('#example').dataTable( {
- *       columnDefs: [
- *         { type: 'ip-address', targets: 0 }
- *       ]
- *    } );
+ * Sorts a column containing sectional indexes delimited by multiple full-stops '.' (e.g. IPv4 Address)
  */
 
 
 jQuery.extend( jQuery.fn.dataTableExt.oSort, {
-	"ip-address-pre": function ( a ) {
+	"section-pre": function ( a ) {
 		var i, item;
-		var m, n;
-		var x, xa;
+		var m;
 
 		if (!a) {
 			return 0
 		}
 		
-		m = a.split(".");
-		n = a.split(":");
-		x = "";
-		xa = "";
 
 		a = a.replace(/<[\s\S]*?>/g, "");
+		
+		m = a.split(".");
 		
 		for(i = 0; i < m.length; i++) {
 			item = m[i];
@@ -52,11 +34,11 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
 		return x;
 	},
 
-	"ip-address-asc": function ( a, b ) {
+	"section-asc": function ( a, b ) {
 		return ((a < b) ? -1 : ((a > b) ? 1 : 0));
 	},
 
-	"ip-address-desc": function ( a, b ) {
+	"section-desc": function ( a, b ) {
 		return ((a < b) ? 1 : ((a > b) ? -1 : 0));
 	}
 });
