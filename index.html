@@ -30,7 +30,6 @@
         
       
 <script>
-    jconfirm.defaults.useBootstrap = false;
     
     function openDocument() {
         alert("Opening Document");
@@ -188,6 +187,8 @@ $(document).ready(function() {
         }
         
         console.log(docSections);
+        
+        jconfirm.defaults.useBootstrap = false;
         
         $.confirm({
             title: 'Confirm!',
