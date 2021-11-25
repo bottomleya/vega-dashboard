@@ -9,9 +9,11 @@
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="css/jquery-confirm.min.css">
 
         <script src="js/jquery-3.5.1.js"></script>
         <script src="js/jquery.dataTables.min.js"></script>
+        <script src="js/jquery-confirm.min.js"></script>
 
         <title>Document Manager</title>
         
@@ -183,8 +185,22 @@ $(document).ready(function() {
                 sectionsTxt = sectionsTxt + "\u2022" + index + ": " + title + "\n";
             }
         }
-        alert("Printing the following sections: \n" + sectionsTxt)
+        
         console.log(docSections);
+        
+        $.confirm({
+            title: 'Confirm!',
+            content: "Printing the following sections: \n" + sectionsTxt,
+            buttons: {
+                confirm: function () {
+                    $.alert('Confirmed!');
+                },
+                cancel: function () {
+                    $.alert('Canceled!');
+                }
+            }
+        });
+   
     });
     
         
