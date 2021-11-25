@@ -188,7 +188,6 @@ $(document).ready(function() {
         
         console.log(docSections);
         
-        jconfirm.defaults.useBootstrap = false;
         
         $.confirm({
             title: 'Confirm!',
@@ -200,13 +199,23 @@ $(document).ready(function() {
                     text: "Proceed",
                     btnClass: "btn-blue",
                     action: function () {
-                        $.alert('Please wait whilst compilation completes...');
+                        $.alert({
+                            title: 'Document Compilation',
+                            content: 'Please wait whilst compilation completes...',
+                            boxWidth: 30%,
+                            useBootstrap: false
+                        });
                     }   
                 },
                 cancel: {
                     text: "Cancel",
                     action: function () {
-                        $.alert('Canceled!');
+                        $.alert(
+                            title: 'Cancel',
+                            content: 'Cancelled Action.',
+                            boxWidth: 30%,
+                            useBootstrap: false
+                        });
                     }
                 }
             }
