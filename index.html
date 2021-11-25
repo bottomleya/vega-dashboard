@@ -30,6 +30,7 @@
         
       
 <script>
+    jconfirm.defaults.useBootstrap = false;
     
     function openDocument() {
         alert("Opening Document");
@@ -190,7 +191,7 @@ $(document).ready(function() {
         
         $.confirm({
             title: 'Confirm!',
-            content: "Printing the following sections: \n" + sectionsTxt,
+            content: ("Printing the following sections: \n" + sectionsTxt).split('\n').join('<br>'),
             boxWidth: '30%',
             useBootstrap: false,
             buttons: {
