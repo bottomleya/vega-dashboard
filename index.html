@@ -102,10 +102,20 @@ $(document).ready(function() {
             },
             {   data: "Document",
                 title: "Document",
-                width: "50px",
+                width: "30px",
                 render: function(data, type, row) {
                     if (type === "display") {
                         return '<i class="fa fa-file" onclick="openDocument()"></i>';
+                    }
+                    return data;
+                }
+            },
+            {   data: "Pages",
+                title: "Pages",
+                width: "30px",
+                render: function(data, type, row) {
+                    if (type === "display") {
+                        return '<a  name="Pages">'+data+'</a>';
                     }
                     return data;
                 }
@@ -122,7 +132,8 @@ $(document).ready(function() {
         "Section Description":"Lists the overall table of contents",
         "Revision":"3",
         "Last Updated":"24-04-2021",
-        "Document":""
+        "Document":"",
+        "Pages":5
         }],
         [{
         "Select":"1",
@@ -131,7 +142,8 @@ $(document).ready(function() {
         "Section Description":"Plantroom 1 Functional Description",
         "Revision":"2a",
         "Last Updated":"24-04-2021",
-        "Document":""
+        "Document":"",
+        "Pages":15
         }],
         [{
         "Select":"1",
@@ -140,7 +152,8 @@ $(document).ready(function() {
         "Section Description":"Plantroom 2 Functional Description",
         "Revision":"2a",
         "Last Updated":"24-04-2021",
-        "Document":""
+        "Document":"",
+        "Pages":30
         }],
         [{
         "Select":"1",
@@ -149,7 +162,8 @@ $(document).ready(function() {
         "Section Description":"Plantroom 2 Functional Description",
         "Revision":"2a",
         "Last Updated":"24-04-2021",
-        "Document":""
+        "Document":"",
+        "Pages":03
         }]
     ]
     for (i=0; i<dataset.length; i++) {
