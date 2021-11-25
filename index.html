@@ -160,14 +160,16 @@ $(document).ready(function() {
     $('#compileBtn').click(function() {
         var aTR = t.rows().nodes();
         var docSections = {};
+        var sectionsTxt = "";
         for (var i=0; i < aTR.length; i++) {
             if($(aTR[i]).find('input')[0].checked) {
                 index = $(aTR[i]).find('a[name="Index"]')[0].innerText;
                 title = $(aTR[i]).find('a[name="Section Title"]')[0].innerText;
                 docSections[index] = title;
+                sectionsTxt = "\u2022" + sectionxTxt + index + ": " + title + "\n";
             }
         }
-        alert("Printing the following sections: " + docSections)
+        alert("Printing the following sections: \n" + sectionsTxt)
         console.log(docSections);
     });
     
