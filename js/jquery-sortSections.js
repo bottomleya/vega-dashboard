@@ -29,18 +29,6 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
 		}
 
 		a = a.replace(/<[\s\S]*?>/g, "");
-		//IPv4:Port
-                t = a.split(":");
-                if (t.length == 2){
-                        m = t[0].split(".");
-                }
-                else {
-                        m = a.split(".");
-                }
-		n = a.split(":");
-		x = "";
-		xa = "";
-
 		if (m.length == 4) {
 			// IPV4
 			for(i = 0; i < m.length; i++) {
