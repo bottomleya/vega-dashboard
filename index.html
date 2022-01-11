@@ -129,10 +129,10 @@
     $(this).toggleClass('hidden');
 }
 );
- $('.resizable').hover(function() {
+ $('.resizers').hover(function() {
     $(this).toggleClass('inactive');
-     if($(this).children('resizer').length > 0) {
-        $(this).children('resizer')[0].childToggleClass('hidden');
+     if($(this).find('resizer').length > 0) {
+        $(this).find('resizer')[0].toggleClass('hidden');
      }
 }
 );
