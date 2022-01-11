@@ -132,9 +132,8 @@
  $('.resizers').hover(function() {
     $(this).toggleClass('inactive');
      console.log($(this).find('resizer'));
-     if($(this).find('resizer').length > 0) {
-        $(this).find('resizer')[0].toggleClass('hidden');
-     }
+     $(this).find('resizer')[0].toggleClass('hidden');
+     console.log($(this).find('resizer'));
 }
 );
 
