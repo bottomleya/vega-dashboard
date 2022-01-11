@@ -16,6 +16,7 @@
         <script src="js/jquery-confirm.min.js"></script>
         <script src="js/dom-checkbox.js"></script>
         <script src="js/jquery-sortSections.js"></script>
+        <script src="js/muuri.min.js"></script>
 
         <title>Document Manager</title>
         
@@ -23,241 +24,32 @@
     <body>
         <div id="header">
             <i class="fa fa-file"></i>
-            <b>Document Manager</b>
+            <b>Grid Dashboard</b>
         </div>
-        <button class="button-84" type="button" role="button" id="compileBtn">Compile</button>
-<table id="documentTable" class="row-border" width="100%"></table>
-        
-        
-        
+         
+        <div class="grid">
+          <div class="item">
+            <div class="item-content">
+              <!-- Safe zone, enter your custom markup -->
+              This can be anything.
+              <!-- Safe zone ends -->
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="item-content">
+              <!-- Safe zone, enter your custom markup -->
+              <div class="my-custom-content">
+                Yippee!
+              </div>
+              <!-- Safe zone ends -->
+            </div>
+          </div>
+        </div>
       
 <script>
-    
-    function openDocument() {
-        alert("Opening Document");
-    }
-    
-
-    
-$(document).ready(function() {
-    var t = $('#documentTable').DataTable(
-    {
-        order: [[ 1, "asc" ]],
-        columns: [
-            {   data: "Select",
-                title: "Select",
-                width: "10px",
-                orderDataType: "dom-checkbox",
-                render: function(data, type, row) {
-                    if (type === "display") {
-                        return '<input name="checkbox" type="checkbox" placeholder="">';
-                    }
-                    return data;
-                }
-            },
-            {   data: "Index",
-                title: "Index",
-                width: "25px",
-                type: "section",
-                render: function(data, type, row) {
-                    if (type === "display") {
-                        return '<a  name="Index">'+data+'</a>';
-                    }
-                    return data;
-                }
-            },
-            {   data: "Section Title",
-                title: "Section Title",
-                width: "400px",
-                render: function(data, type, row) {
-                    if (type === "display") {
-                        return '<a  name="Section Title" class="left-align">'+data+'</a>';
-                    }
-                    return data;
-                }
-            },
-            {   data: "Section Description",
-                title: "Section Description",
-                width: "auto",
-                render: function(data, type, row) {
-                    if (type === "display") {
-                        return '<a  name="Section Description" class="autoWidth left-align">'+data+'</a>';
-                    }
-                    return data;
-                }
-            },
-            {   data: "Revision",
-                title: "Revision",
-                width: "10px",
-                render: function(data, type, row) {
-                    if (type === "display") {
-                        return '<a  name="Revision">'+data+'</a>';
-                    }
-                    return data;
-                }
-            },
-            {   data: "Status",
-                title: "Status",
-                width: "100px",
-                render: function(data, type, row) {
-                    if (type === "display") {
-                        return '<a  name="Status">'+data+'</a>';
-                    }
-                    return data;
-                }
-            },
-            {   data: "Last Updated",
-                title: "Last Updated",
-                width: "150px",
-                render: function(data, type, row) {
-                    if (type === "display") {
-                        return '<a  name="Last Updated">12-05-2021</a>';
-                    }
-                    return data;
-                }
-            },
-            {   data: "Document",
-                title: "Document",
-                width: "30px",
-                render: function(data, type, row) {
-                    if (type === "display") {
-                        return '<i class="fa fa-file" onclick="openDocument()"></i>';
-                    }
-                    return data;
-                }
-            },
-            {   data: "Previous Revision",
-                title: "Previous Revision",
-                width: "30px",
-                render: function(data, type, row) {
-                    if (type === "display") {
-                        return '<i class="fa fa-file" onclick="openDocument()"></i>';
-                    }
-                    return data;
-                }
-            },
-            {   data: "Pages",
-                title: "Pages",
-                width: "30px",
-                render: function(data, type, row) {
-                    if (type === "display") {
-                        return '<a  name="Pages">'+data+'</a>';
-                    }
-                    return data;
-                }
-            }
-        ]
-    } );
-    
-    // define dataset of all elements
-    var dataset = [
-        [{
-        "Select":"1",
-        "Index":"1.3.1",
-        "Section Title":"Table of Contents",
-        "Section Description":"Lists the overall table of contents",
-        "Revision":"3",
-        "Status":"Approved",
-        "Last Updated":"24-04-2021",
-        "Document":"",
-        "Previous Revision":"",
-        "Pages":5
-        }],
-        [{
-        "Select":"1",
-        "Index":"1.3.2",
-        "Section Title":"Plantroom 1 Functional Description",
-        "Section Description":"Plantroom 1 Functional Description",
-        "Revision":"2a",
-        "Status":"Updated with new electrical meters",
-        "Last Updated":"24-04-2021",
-        "Document":"",
-        "Previous Revision":"",
-        "Pages":15
-        }],
-        [{
-        "Select":"1",
-        "Index":"1.3.12",
-        "Section Title":"Plantroom 2 Functional Description",
-        "Section Description":"Plantroom 2 Functional Description",
-        "Revision":"2a",
-        "Status":"For Approval",
-        "Last Updated":"24-04-2021",
-        "Document":"",
-        "Previous Revision":"",
-        "Pages":30
-        }],
-        [{
-        "Select":"1",
-        "Index":"12.3.12",
-        "Section Title":"Plantroom 2 Functional Description",
-        "Section Description":"Plantroom 2 Functional Description",
-        "Revision":"2a",
-        "Status":"Approved",
-        "Last Updated":"24-04-2021",
-        "Document":"",
-        "Previous Revision":"",
-        "Pages":03
-        }]
-    ]
-    for (i=0; i<dataset.length; i++) {
-        t.rows.add(dataset[i]).draw( false );
-    }
-    
-    // Add compile function defined w.r.t. the created datatable on button click
-    $('#compileBtn').click(function() {
-        var aTR = t.rows().nodes();
-        var docSections = {};
-        var sectionsTxt = "";
-        for (var i=0; i < aTR.length; i++) {
-            if($(aTR[i]).find('input')[0].checked) {
-                index = $(aTR[i]).find('a[name="Index"]')[0].innerText;
-                title = $(aTR[i]).find('a[name="Section Title"]')[0].innerText;
-                docSections[index] = title;
-                sectionsTxt = sectionsTxt + "\u2022" + index + ": " + title + "\n";
-            }
-        }
-        
-        console.log(docSections);
-        
-        
-        $.confirm({
-            title: 'Confirm Selection',
-            content: ("Printing the following sections: \n" + sectionsTxt).split('\n').join('<br>'),
-            boxWidth: '30%',
-            useBootstrap: false,
-            buttons: {
-                confirm: {
-                    text: "Proceed",
-                    btnClass: "btn-blue",
-                    action: function () {
-                        $.alert({
-                            title: 'Document Compilation',
-                            content: 'Please wait whilst compilation completes...',
-                            boxWidth: "30%",
-                            useBootstrap: false
-                        });
-                    }   
-                },
-                cancel: {
-                    text: "Cancel",
-                    action: function () {
-                        $.alert({
-                            title: 'Cancel',
-                            content: 'Cancelled Action.',
-                            boxWidth: "30%",
-                            useBootstrap: false
-                        });
-                    }
-                }
-            }
-        });
-   
-    });
-    
-        
-} );
-        </script>
+    var grid = new Muuri('.grid');
+</script>
       
 </body>
 </html>
