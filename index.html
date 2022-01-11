@@ -35,20 +35,28 @@
          
       <div class="item">
         <div class="item-content resizable">
-          <!-- Safe zone, enter your custom markup -->
               <div class='resizers inactive'>
                 <div class='resizer bottom-right hidden'></div>
                 <canvas id="myChart"></canvas>
               </div>
-          <!-- Safe zone ends -->
         </div>
       </div>
           
       <div class="item">
-        <div class="item-content">
-          <!-- Safe zone, enter your custom markup -->
-          <canvas id="myPie" width="200" height="200"></canvas>
-          <!-- Safe zone ends -->
+        <div class="item-content resizable">
+              <div class='resizers inactive'>
+                <div class='resizer bottom-right hidden'></div>
+                <canvas id="myPie" width="200" height="200"></canvas>
+              </div>
+        </div>
+      </div>
+    </div>
+      <div class="item">
+        <div class="item-content resizable">
+              <div class='resizers inactive'>
+                <div class='resizer bottom-right hidden'></div>
+                <canvas id="myPie2" width="200" height="200"></canvas>
+              </div>
         </div>
       </div>
     </div>
@@ -122,8 +130,27 @@
             hoverOffset: 4
           }]
         }
-        
-    
+    });
+    const pie2 = $('#myPie2');
+    const myPie2 = new Chart(pie2, {
+        type: 'doughnut',
+        data: {
+          labels: [
+            'Red',
+            'Blue',
+            'Yellow'
+          ],
+          datasets: [{
+            label: 'My First Dataset',
+            data: [300, 50, 100],
+            backgroundColor: [
+              'rgb(255, 99, 132)',
+              'rgb(54, 162, 235)',
+              'rgb(255, 205, 86)'
+            ],
+            hoverOffset: 4
+          }]
+        }
     });
     
  $('.resizers').hover(function() {
