@@ -33,7 +33,7 @@
           <div class="item">
             <div class="item-content">
               <!-- Safe zone, enter your custom markup -->
-              <canvas id="myChart" width="400" height="400"></canvas>
+              <canvas id="myChart" width="800" height="400"></canvas>
               <!-- Safe zone ends -->
             </div>
           </div>
@@ -41,9 +41,7 @@
           <div class="item">
             <div class="item-content">
               <!-- Safe zone, enter your custom markup -->
-              <div class="my-custom-content">
-                Yippee!
-              </div>
+              <canvas id="myPie" width="200" height="200"></canvas>
               <!-- Safe zone ends -->
             </div>
           </div>
@@ -86,6 +84,29 @@
             }
         }
     });
+    const pie = $('#myPie');
+    const myPie = new Chart(pie, {
+        type: 'doughnut',
+        data: {{
+      labels: [
+        'Red',
+        'Blue',
+        'Yellow'
+      ],
+      datasets: [{
+        label: 'My First Dataset',
+        data: [300, 50, 100],
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(54, 162, 235)',
+          'rgb(255, 205, 86)'
+        ],
+        hoverOffset: 4
+      }]
+    }
+        
+    });
+    
 </script>
       
 </body>
