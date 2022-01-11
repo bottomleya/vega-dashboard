@@ -69,7 +69,6 @@ function makeResizableDiv(div) {
           element.style.top = original_y + (e.pageY - original_mouse_y) + 'px'
         }
       }
-       grid.refreshItems();
     }
     
     function stopResize() {
