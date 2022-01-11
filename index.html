@@ -58,6 +58,7 @@
         dragEnabled: true,
           dragStartPredicate: function (item, e) {
             // Start moving the item if
+              console.log(e);
             if (e.deltaTime > 1000) {
               return true;
             }
