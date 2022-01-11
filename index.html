@@ -34,7 +34,7 @@
     <div class="grid">
          
       <div class="item">
-        <div class="item-content resizable">
+        <div class="item-content resizable" id="myChart">
               <div class='resizers inactive'>
                 <div class='resizer bottom-right hidden'></div>
                 <canvas id="myChart"></canvas>
@@ -43,7 +43,7 @@
       </div>
           
       <div class="item">
-        <div class="item-content resizable">
+        <div class="item-content resizable" id="myPie">
               <div class='resizers inactive'>
                 <div class='resizer bottom-right hidden'></div>
                 <canvas id="myPie" width="200" height="200"></canvas>
@@ -52,7 +52,7 @@
       </div>
     </div>
       <div class="item">
-        <div class="item-content resizable">
+        <div class="item-content resizable" id="myPie2>
               <div class='resizers inactive'>
                 <div class='resizer bottom-right hidden'></div>
                 <canvas id="myPie2" width="200" height="200"></canvas>
@@ -159,7 +159,9 @@
 }
 );
 
-makeResizableDiv('.resizable')
+makeResizableDiv('myChart')
+makeResizableDiv('myPie')
+makeResizableDiv('myPie2')
     
 </script>
       
