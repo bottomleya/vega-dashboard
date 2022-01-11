@@ -61,7 +61,7 @@
              
             grid.refreshItems();
             grid.layout();
-            if (e.target.classList.contains("chartjs-render-monitor")) {
+            if (e.target.classList.contains("chartjs-render-monitor") && !e.type == "move") {
               console.log(e);
               return true;
             }
