@@ -16,6 +16,10 @@ body {
   box-sizing: border-box;
 }
 
+.hidden {
+  display: none;
+}
+
 .resizable .resizers .resizer{
   width: 10px;
   height: 10px;
