@@ -126,11 +126,14 @@
     });
     
  $('.resizer').hover(function() {
-    $(this).toggleClass('.hidden');
+    $(this).toggleClass('hidden');
 }
 );
  $('.resizable').hover(function() {
-    $(this).toggleClass('.inactive');
+    $(this).toggleClass('inactive');
+     if($(this).children('resizer').length > 0) {
+        $(this).children('resizer')[0].childToggleClass('hidden');
+     }
 }
 );
 
