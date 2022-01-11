@@ -16,7 +16,7 @@ body {
 }
 
 .inactive {
-  border: 0px;
+  border: 0px solid #4286f4;
 }
 
 .hidden {
