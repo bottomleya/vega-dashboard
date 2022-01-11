@@ -1,4 +1,4 @@
-# document-manager
-Documentation Management Portal
+# grid-dashboard
+Grid-Based Dashboard
 
-Published using Github Pages at https://bottomleya.github.io/document-manager/
+Published using Github Pages at https://bottomleya.github.io/grid-dashboard/
