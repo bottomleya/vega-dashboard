@@ -20,6 +20,7 @@
         <script src="js/web-animations.min.js"></script>
         <script src="js/Chart.min.js"></script>
         <script src="js/fontawesome.min.js"></script>
+        <script src="js/makeResizableDiv.js"></script>
 
         <title>Grid Dashboard</title>
         
@@ -34,7 +35,15 @@
           <div class="item">
             <div class="item-content">
               <!-- Safe zone, enter your custom markup -->
-              <canvas id="myChart" width="800" height="400"></canvas>
+              <div class='resizable'>
+                  <canvas id="myChart"></canvas>
+                  <div class='resizers'>
+                    <div class='resizer top-left'></div>
+                    <div class='resizer top-right'></div>
+                    <div class='resizer bottom-left'></div>
+                    <div class='resizer bottom-right'></div>
+                  </div>
+            </div>
               <!-- Safe zone ends -->
             </div>
           </div>
@@ -107,6 +116,10 @@
         }
         
     });
+    
+ 
+
+makeResizableDiv('.resizable')
     
 </script>
       
