@@ -24,6 +24,7 @@ function makeResizableDiv(div) {
     })
     
     function resize(e) {
+       grid.dragEnabled = false;
       if (currentResizer.classList.contains('bottom-right')) {
         const width = original_width + (e.pageX - original_mouse_x);
         const height = original_height + (e.pageY - original_mouse_y)
@@ -68,6 +69,7 @@ function makeResizableDiv(div) {
           element.style.top = original_y + (e.pageY - original_mouse_y) + 'px'
         }
       }
+       grid.refreshItems();
     }
     
     function stopResize() {
