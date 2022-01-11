@@ -125,7 +125,14 @@
         
     });
     
- 
+ $('.resizer').hover(function() {
+    $(this).toggleClass('.hidden');
+}
+);
+ $('.resizable').hover(function() {
+    $(this).toggleClass('.inactive');
+}
+);
 
 makeResizableDiv('.resizable')
     
