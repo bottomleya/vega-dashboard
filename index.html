@@ -37,9 +37,6 @@
         <div class="item-content resizable">
           <!-- Safe zone, enter your custom markup -->
               <div class='resizers'>
-                <div class='resizer top-left'></div>
-                <div class='resizer top-right'></div>
-                <div class='resizer bottom-left'></div>
                 <div class='resizer bottom-right'></div>
                 <canvas id="myChart"></canvas>
               </div>
@@ -57,7 +54,15 @@
     </div>
       
 <script>
-    var grid = new Muuri('.grid', {dragEnabled: false});
+    var grid = new Muuri('.grid', {
+        dragEnabled: true,
+          dragStartPredicate: function (item, e) {
+            // Start moving the item if
+            if (e.deltaTime > 1000) {
+              return true;
+            }
+          },
+    });
     const ctx = $('#myChart');
     const myChart = new Chart(ctx, {
         type: 'bar',
