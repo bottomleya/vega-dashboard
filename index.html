@@ -33,30 +33,28 @@
         
     <div class="grid">
          
-      <div class='resizable'>
-      <div class='resizers'>
-        <div class='resizer top-left'></div>
-        <div class='resizer top-right'></div>
-        <div class='resizer bottom-left'></div>
-        <div class='resizer bottom-right'></div>
+      <div class="item resizable">
+          <div class='resizers'>
+            <div class='resizer top-left'></div>
+            <div class='resizer top-right'></div>
+            <div class='resizer bottom-left'></div>
+            <div class='resizer bottom-right'></div>
+          </div>
+        <div class="item-content">
+          <!-- Safe zone, enter your custom markup -->
+              <canvas id="myChart"></canvas>
+          <!-- Safe zone ends -->
+        </div>
       </div>
-          <div class="item">
-            <div class="item-content">
-              <!-- Safe zone, enter your custom markup -->
-                  <canvas id="myChart"></canvas>
-              <!-- Safe zone ends -->
-            </div>
-          </div>
-        </div>
           
-          <div class="item">
-            <div class="item-content">
-              <!-- Safe zone, enter your custom markup -->
-              <canvas id="myPie" width="200" height="200"></canvas>
-              <!-- Safe zone ends -->
-            </div>
-          </div>
+      <div class="item">
+        <div class="item-content">
+          <!-- Safe zone, enter your custom markup -->
+          <canvas id="myPie" width="200" height="200"></canvas>
+          <!-- Safe zone ends -->
         </div>
+      </div>
+    </div>
       
 <script>
     var grid = new Muuri('.grid', {dragEnabled: true});
