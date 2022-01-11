@@ -59,6 +59,7 @@
           dragStartPredicate: function (item, e) {
             // Start moving the item if
              
+            grid.refreshItems();
             if (e.target.classList.contains("chartjs-render-monitor")) {
               console.log(e.target.classList);
               return true;
