@@ -34,9 +34,9 @@
     <div class="grid">
          
       <div class="item">
-        <div class="item-content resizable inactive">
+        <div class="item-content resizable">
           <!-- Safe zone, enter your custom markup -->
-              <div class='resizers'>
+              <div class='resizers inactive'>
                 <div class='resizer bottom-right hidden'></div>
                 <canvas id="myChart"></canvas>
               </div>
@@ -131,6 +131,7 @@
 );
  $('.resizers').hover(function() {
     $(this).toggleClass('inactive');
+     console.log($(this).find('resizer'));
      if($(this).find('resizer').length > 0) {
         $(this).find('resizer')[0].toggleClass('hidden');
      }
