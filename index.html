@@ -76,10 +76,40 @@
       </div>
         
     </div>
+    
+        
+        
+        
     <div id="add_new_widget_container" class="hidden">
         <div id="blur_backdrop"></div>
-        <span id="add_new_widget_panel">Add new widget</span>
-    </div>    
+        <span id="add_new_widget_panel">
+            <button class="action_button close_button"><i class="fa fa-xmark"></i></button>
+            <div class="panel_header">Add New Widget</div>
+            <div class="panel_section">
+                <form id="add_new_widget_form">
+                    <label for="select_widget">Select Widget (*under development)</label>
+                      <input type="radio" id="Column" name="select_widget" value="Column">
+                      <label for="Column">Column</label><br>
+                    
+                      <input type="radio" id="Bar" name="select_widget" value="Bar">
+                      <label for="Bar">Bar</label><br>
+                    
+                      <input type="radio" id="Line" name="select_widget" value="Line">
+                      <label for="Line">Line</label><br>
+                    
+                      <input type="radio" id="Pie" name="select_widget" value="Pie">
+                      <label for="Pie">Pie</label><br>
+                    
+                    <input id="add_new_widget_submit" type="submit" value="Submit">
+                </form>
+                
+                <div>
+            </div>
+        </span>
+    </div> 
+        
+        
+        
 <script>
     var grid = new Muuri('.grid', {
         dragEnabled: true,
@@ -230,7 +260,18 @@ $('#add_widget').click(function() {
                          
 $('#blur_backdrop').click(function() {
     $('#add_new_widget_container').toggleClass('hidden');
+})                        
+$('.close_button').click(function() {
+    $('#add_new_widget_container').toggleClass('hidden');
 })
+    
+$('#add_new_widget_submit').click(function() {
+    $('form#add_new_widget_form').submit();
+    $('#add_new_widget_container').toggleClass('hidden');
+    var chartType = $('input[name=select_widget]:checked', '#add_new_widget_form').val();
+    console.log("Creating new chart of type " + chartType);
+})    
+    
 </script>
       
 </body>
