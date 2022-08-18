@@ -266,7 +266,7 @@ $('.close_button').click(function() {
 })
     
 $('#add_new_widget_submit').click(function() {
-    $('form#add_new_widget_form').submit();
+    //$('form#add_new_widget_form').submit();
     $('#add_new_widget_container').toggleClass('hidden');
     var chartType = $('input[name=select_widget]:checked', '#add_new_widget_form').val();
     console.log("Creating new chart of type " + chartType);
