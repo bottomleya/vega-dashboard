@@ -28,7 +28,7 @@
     <body>
         <div id="header">
             <i class="fas fa-poll"></i>
-            <div id="header">Grid Dashboard</div>
+            <input id="header">Grid Dashboard</input>
         </div>
         
     <div class="grid">
@@ -202,31 +202,7 @@
 }
 );
     
-$('#header').click(function(){
-    var name = $(this).text();
-    $(this).html('');
-    $('<input></input>')
-        .attr({
-            'type': 'text',
-            'name': 'fname',
-            'id': 'txt_header',
-            'size': '30',
-            'value': name
-        })
-        .appendTo('#header');
-    $('#txt_headere').focus();
-});
 
-$(document).on('blur','#txt_header', function(){
-    var name = $(this).val();
-    $.ajax({
-      type: 'post',
-      url: 'change-name.xhr?name=' + name,
-      success: function(){
-        $('#header').text(name);
-      }
-    });
-});
 
 makeResizableDiv('#item1');
 makeResizableDiv('#item2');
