@@ -91,7 +91,8 @@ body {
     display: block;
     padding: 10px;
     border-radius: 0px;
-    margin: 50px;
+    margin: 20px;
+    position: relative;
 }
 #header_input {
     background-color: transparent;
@@ -101,6 +102,18 @@ body {
     padding: 5px;
     border-radius: 0px;
     border: 0;
+    float: left;
+}
+
+#action_bar {
+    background-color: #202020;
+    border: 0.0625rem solid #606060;
+    color: #dcdcdc;
+    float: right;
+}
+
+.action_button {
+    display: inline-block;
 }
 
 td {
