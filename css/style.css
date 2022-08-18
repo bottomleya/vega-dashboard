@@ -46,8 +46,8 @@ body {
 #add_new_widget_panel {
     z-index: 2;
     padding: 5px;
-    color: #000;
-    background-color: #202020;
+    color: #fff;
+    background-color: #000;
     height:400px;
     width:800px;
     position:absolute;
@@ -56,6 +56,7 @@ body {
     margin-left:-400px;
     margin-top:-200px;
     display:block;
+    font-weight: bold;
 }
 
 .resizable .resizers .resizer{
