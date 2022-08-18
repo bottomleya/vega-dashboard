@@ -23,6 +23,20 @@ body {
   visibility: hidden;
 }
 
+#blur_backdrop {
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#add_new_widget_panel {
+    width: 80%;
+    height: 80%;
+    background-color: #202020;
+    z-index: 2;
+}
+
 .resizable .resizers .resizer{
   width: 10px;
   height: 10px;
