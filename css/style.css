@@ -101,7 +101,7 @@ body {
     padding: 5px;
     border-radius: 0px;
     border: 0;
-    width: calc(90%-100px);
+    width: 70%;
     
 }
 
@@ -110,7 +110,7 @@ body {
     border: 0.0625rem solid #606060;
     color: #dcdcdc;
     display: inline-block;
-    width: 10%;
+    width: auto;
     text-align: right;
     padding: 0px;
 }
