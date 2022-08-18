@@ -76,8 +76,8 @@
       </div>
         
     </div>
-    <div id="blur_backdrop" class="hidden"></div>
     <div id="add_new_widget_container" class="hidden">
+        <div id="blur_backdrop"></div>
         <span id="add_new_widget_panel">Add new widget</span>
     </div>    
 <script>
@@ -225,12 +225,10 @@ makeResizableDiv('#item4');
     
     
 $('#add_widget').click(function() {
-    $('#blur_backdrop').toggleClass('hidden');
     $('#add_new_widget_container').toggleClass('hidden');
 })
                          
 $('#blur_backdrop').click(function() {
-    $('#blur_backdrop').toggleClass('hidden');
     $('#add_new_widget_container').toggleClass('hidden');
 })
 </script>
