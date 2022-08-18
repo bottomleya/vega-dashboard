@@ -34,8 +34,7 @@ body {
 }
 
 #add_new_widget_container {
-      background-color: transparent;
-      z-index: 2;
+      background-color: transparent;y
       position: fixed;
       top: 0;
       left: 0;
@@ -47,14 +46,16 @@ body {
 #add_new_widget_panel {
     z-index: 2;
     padding: 5px;
-    border-radius: 5px;
     color: #000;
     background-color: #202020;
-    position:relative;
-    top:20%;
-    left:20%;
-    width: 60%;
-    height: 60%;
+    height:300px;
+    width:500px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-150px;
+    margin-top:-250px;
+    display:block;
 }
 
 .resizable .resizers .resizer{
