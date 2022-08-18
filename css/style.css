@@ -151,15 +151,34 @@ body {
     font-size:0px;
 }
 
+.top_bar {
+    display: block;
+    text-align: right;
+}
+
 .action_button {
     display: inline-block;
-    background-color: #303030;
+    background-color: transparent;
     color: #DCDCDC;
     border: 0px solid #4286f4;
     margin: 5px;
     padding: 1px;
     font-size: 25px;
     cursor: pointer;
+}
+
+.panel_header {
+    font-size: 30px;
+    color: #000;
+}
+
+.panel_section {
+    font-size: 20px;
+    color: #dcdcdc;
+}
+
+.panel_section input {
+    display: inline-block;
 }
 
 /* Darker background on mouse-over */
