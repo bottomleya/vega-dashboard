@@ -27,14 +27,33 @@ body {
     backdrop-filter: blur(10px);
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
     z-index: 1;
 }
 
+#add_new_widget_container {
+      background-color: transparent;
+      z-index: 2;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+}
+
 #add_new_widget_panel {
+    z-index: 2;
+    padding: 5px;
+    border-radius: 5px;
+    color: #000;
+    background-color: #202020;
+    position:relative;
+    top:50%;
     width: 80%;
     height: 80%;
-    background-color: #202020;
-    z-index: 2;
 }
 
 .resizable .resizers .resizer{
