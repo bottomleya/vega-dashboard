@@ -56,7 +56,6 @@ body {
     margin-left:-400px;
     margin-top:-200px;
     display:block;
-    font-weight: bold;
 }
 
 .resizable .resizers .resizer{
@@ -171,6 +170,7 @@ body {
 .panel_header {
     font-size: 30px;
     color: #dcdcdc;
+    font-weight: bold;
 }
 
 .panel_section {
