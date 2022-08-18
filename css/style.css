@@ -87,7 +87,7 @@ body {
 #header {
     background-color: #303030;
     color: #DCDCDC;
-    font-size: 50vw;
+    font-size: 5vw;
     display: block;
     padding: 20px;
     border-radius: 0px;
@@ -95,7 +95,7 @@ body {
 #header_input {
     background-color: transparent;
     color: #DCDCDC;
-    font-size: 50vw;
+    font-size: 5vw;
     display: block;
     padding: 20px;
     border-radius: 0px;
