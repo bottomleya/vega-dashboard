@@ -87,15 +87,15 @@ body {
 #header {
     background-color: #303030;
     color: #DCDCDC;
-    font-size: 10vw;
+    font-size: 50vw;
     display: block;
     padding: 20px;
     border-radius: 0px;
 }
 #header_input {
-    background-color: #303030;
+    background-color: transparent;
     color: #DCDCDC;
-    font-size: 10vw;
+    font-size: 50vw;
     display: block;
     padding: 20px;
     border-radius: 0px;
