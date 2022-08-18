@@ -89,15 +89,16 @@ body {
     color: #DCDCDC;
     font-size: 5vw;
     display: block;
-    padding: 20px;
+    padding: 10px;
     border-radius: 0px;
+    margin: 50px;
 }
 #header_input {
     background-color: transparent;
     color: #DCDCDC;
     font-size: 5vw;
     display: block;
-    padding: 20px;
+    padding: 5px;
     border-radius: 0px;
     border: 0;
 }
