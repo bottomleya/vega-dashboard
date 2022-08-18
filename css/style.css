@@ -97,7 +97,7 @@ body {
     background-color: transparent;
     color: #DCDCDC;
     font-size: 5vw;
-    display: inline-block;
+    float: left;
     padding: 0px;
     border-radius: 0px;
     border: 0;
@@ -109,7 +109,6 @@ body {
     background-color: transparent;
     border: 0;
     color: #dcdcdc;
-    display: inline-block;
     overflow: hidden;
     text-align: right;
     padding: 0px;
