@@ -121,7 +121,7 @@ label {
 
 input {
     background-color: #e8e8e8;
-    color: #666666;
+    color: #F0F0F0;
     width: 100%;
 }
 
@@ -131,7 +131,7 @@ input[type=search] {
 
 select {
     background-color: #e8e8e8;
-    color: #666666;
+    color: #F0F0F0;
 }
 
 table.dataTable.display tbody tr.odd>.sorting_1 {
