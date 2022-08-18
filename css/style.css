@@ -23,6 +23,41 @@ body {
   visibility: hidden;
 }
 
+.dropdown_button {
+  position: absolute;
+  display: inline-block;
+}
+
+.dropdown_content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  z-index: 2;
+}
+
+/* Links inside the dropdown */
+.dropdown_content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown_content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu on hover */
+.dropdown_button:hover .dropdown_content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.btn:hover, .dropdown_button:hover .btn  {
+  background-color: #0b7dda;
+}
+
+
 #blur_backdrop {
     backdrop-filter: blur(10px);
     width: 100%;
