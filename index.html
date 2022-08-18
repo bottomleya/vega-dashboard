@@ -88,7 +88,7 @@
             </div>
             <div class="panel_header">Add New Widget</div>
             <div class="panel_section">
-                    <label for="select_widget">Select Widget</label>
+                    <label for="select_widget">Select Widget</label><br>
                       <input type="radio" id="Column" name="select_widget" value="Column">
                       <label for="Column">Column</label><br>
                     
@@ -269,7 +269,7 @@ $('.close_button').click(function() {
 })
     
 $('#add_new_widget_submit').click(function() {
-    var chartType = $('input[name=select_widget]:checked', '#add_new_widget_form').val();
+    var chartType = $('input[name=select_widget]:checked').val();
     console.log("Creating new chart of type " + chartType);
     $('#add_new_widget_container').toggleClass('hidden');
 })    
