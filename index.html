@@ -83,10 +83,12 @@
     <div id="add_new_widget_container" class="hidden">
         <div id="blur_backdrop"></div>
         <span id="add_new_widget_panel">
-            <button class="action_button close_button"><i class="fa fa-xmark"></i></button>
+            <div class="top_bar">
+                <button class="action_button close_button"><i class="fa fa-xmark"></i></button>
+            </div>
             <div class="panel_header">Add New Widget</div>
             <div class="panel_section">
-                    <label for="select_widget">Select Widget (*under development)</label>
+                    <label for="select_widget">Select Widget</label>
                       <input type="radio" id="Column" name="select_widget" value="Column">
                       <label for="Column">Column</label><br>
                     
@@ -98,6 +100,9 @@
                     
                       <input type="radio" id="Pie" name="select_widget" value="Pie">
                       <label for="Pie">Pie</label><br>
+                
+                      <input type="radio" id="Scatter" name="select_widget" value="Scatter">
+                      <label for="Scatter">Scatter</label><br>
                     
                     <button id="add_new_widget_submit">Submit</button>
                 
