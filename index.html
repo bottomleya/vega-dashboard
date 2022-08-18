@@ -50,6 +50,7 @@
       <div class="item">
         <div class="item-content resizable" id="item1">
               <div class='resizers inactive'>
+                <div class='x top-right hidden'><i class="fa fa-xmark"></i></div>
                 <div class='resizer bottom-right hidden'></div>
                 <canvas id="myChart" width="800" height="200"></canvas>
               </div>
@@ -59,6 +60,7 @@
       <div class="item">
         <div class="item-content resizable" id="item2">
               <div class='resizers inactive'>
+                <div class='x top-right hidden'><i class="fa fa-xmark"></i></div>
                 <div class='resizer bottom-right hidden'></div>
                 <canvas id="myPie" width="200" height="200"></canvas>
               </div>
@@ -67,6 +69,7 @@
       <div class="item">
         <div class="item-content resizable" id="item3">
               <div class='resizers inactive'>
+                <div class='x top-right hidden'><i class="fa fa-xmark"></i></div>
                 <div class='resizer bottom-right hidden'></div>
                 <canvas id="myPie2" width="200" height="200"></canvas>
               </div>
@@ -76,6 +79,7 @@
       <div class="item">
         <div class="item-content resizable" id="item4">
               <div class='resizers inactive'>
+                <div class='x top-right hidden'><i class="fa fa-xmark"></i></div>
                 <div class='resizer bottom-right hidden'></div>
                 <canvas id="myChart2"></canvas>
               </div>
@@ -258,10 +262,10 @@
     
 Chart.defaults.global.defaultFontColor = "#fff";
 
-//makeResizableDiv('#item1');
-//makeResizableDiv('#item2');
-//makeResizableDiv('#item3');
-//makeResizableDiv('#item4');
+makeResizableDiv('#item1');
+makeResizableDiv('#item2');
+makeResizableDiv('#item3');
+makeResizableDiv('#item4');
     
     
 $('#add_widget').click(function() {
@@ -280,6 +284,10 @@ $('#add_new_widget_submit').click(function() {
     console.log("Creating new chart of type " + chartType);
     $('#add_new_widget_container').toggleClass('hidden');
 })    
+    
+$('.x').click(function() {
+    this.parentElement.parentElement.parentElement.remove();
+}
     
 </script>
       
