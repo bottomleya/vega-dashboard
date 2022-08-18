@@ -90,15 +90,15 @@ body {
     font-size: 10vw;
     display: block;
     padding: 20px;
-    border-radius: 25px;
+    border-radius: 0px;
 }
 #header_input {
     background-color: #303030;
     color: #DCDCDC;
     font-size: 10vw;
     display: block;
-    padding: 0px;
-    border-radius: 25px;
+    padding: 20px;
+    border-radius: 0px;
     border: 0;
 }
 
