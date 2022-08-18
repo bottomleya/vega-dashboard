@@ -120,8 +120,8 @@ body {
     display: inline-block;
     background-color: #303030;
     color: #DCDCDC;
-    border: 1px solid #4286f4;
-    margin: 0px;
+    border: 0px solid #4286f4;
+    margin: 1px;
     padding: 0px;
     font-size: 25px;
     cursor: pointer;
