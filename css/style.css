@@ -101,7 +101,8 @@ body {
     padding: 5px;
     border-radius: 0px;
     border: 0;
-    width: 80%;
+    width: calc(90%-100px);
+    
 }
 
 #action_bar {
@@ -111,6 +112,7 @@ body {
     display: inline-block;
     width: 10%;
     text-align: right;
+    padding: 0px;
 }
 
 .action_button {
