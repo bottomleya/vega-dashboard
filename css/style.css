@@ -121,15 +121,15 @@ body {
     background-color: #303030;
     color: #DCDCDC;
     border: 0px solid #4286f4;
-    margin: 1px;
-    padding: 0px;
+    margin: 5px;
+    padding: 1px;
     font-size: 25px;
     cursor: pointer;
 }
 
 /* Darker background on mouse-over */
 .action_button:hover {
-  background-color: #2b2b2b;
+  color: #cfe1ff;
 }
 
 td {
