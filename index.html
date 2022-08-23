@@ -131,8 +131,7 @@
             grid.refreshItems();
             grid.layout();
             console.log(e);
-            if (e.type != "move" 
-                && e.target.classList.contains("chartjs-render-monitor")) {
+            if (e.type != "move" && e.target.classList.contains("chartjs-render-monitor")) {
               return true;
             }
           },
