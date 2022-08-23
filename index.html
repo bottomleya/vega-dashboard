@@ -49,8 +49,8 @@
          
       <div class="item">
         <div class="item-content resizable" id="item1">
+              <div class='x hidden'><i class="fa fa-xmark"></i></div>
               <div class='resizers inactive'>
-                <div class='x hidden'><i class="fa fa-xmark"></i></div>
                 <div class='resizer bottom-right hidden'></div>
                 <canvas id="myChart" width="800" height="200"></canvas>
               </div>
@@ -59,8 +59,8 @@
           
       <div class="item">
         <div class="item-content resizable" id="item2">
+              <div class='x hidden'><i class="fa fa-xmark"></i></div>
               <div class='resizers inactive'>
-                <div class='x hidden'><i class="fa fa-xmark"></i></div>
                 <div class='resizer bottom-right hidden'></div>
                 <canvas id="myPie" width="200" height="200"></canvas>
               </div>
@@ -68,8 +68,8 @@
       </div>
       <div class="item">
         <div class="item-content resizable" id="item3">
+              <div class='x hidden'><i class="fa fa-xmark"></i></div>
               <div class='resizers inactive'>
-                <div class='x hidden'><i class="fa fa-xmark"></i></div>
                 <div class='resizer bottom-right hidden'></div>
                 <canvas id="myPie2" width="200" height="200"></canvas>
               </div>
@@ -78,8 +78,8 @@
      
       <div class="item">
         <div class="item-content resizable" id="item4">
+              <div class='x hidden'><i class="fa fa-xmark"></i></div>
               <div class='resizers inactive'>
-                <div class='x hidden'><i class="fa fa-xmark"></i></div>
                 <div class='resizer bottom-right hidden'></div>
                 <canvas id="myChart2"></canvas>
               </div>
@@ -128,12 +128,13 @@
     var grid = new Muuri('.grid', {
         dragEnabled: true,
           dragStartPredicate: function (item, e) {
-            // Start moving the item if
+            // Start moving the item if...
              
             grid.refreshItems();
             grid.layout();
             console.log(e);
-            if (e.type != "move" && e.target.classList.contains("chartjs-render-monitor")) {
+            if (e.type != "move" 
+                && e.target.classList.contains("chartjs-render-monitor")) {
               return true;
             }
           },
