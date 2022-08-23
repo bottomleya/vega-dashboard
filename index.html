@@ -49,6 +49,7 @@
          
       <div class="item">
         <div class="item-content resizable" id="item1">
+              <div class='x hidden'><i class="fa fa-xmark"></i></div>
               <div class='resizers inactive'>
                 <div class='resizer bottom-right hidden'></div>
                 <canvas id="myChart" width="800" height="200"></canvas>
@@ -261,10 +262,10 @@ $('.resizers').hover(function() {
     
 Chart.defaults.global.defaultFontColor = "#fff";
 
-//makeResizableDiv('#item1');
-//makeResizableDiv('#item2');
-//makeResizableDiv('#item3');
-//makeResizableDiv('#item4');
+makeResizableDiv('#item1');
+makeResizableDiv('#item2');
+makeResizableDiv('#item3');
+makeResizableDiv('#item4');
     
     
 $('#add_widget').click(function() {
