@@ -30,18 +30,18 @@
             <input id="header_input" placeholder="New Dashboard">
             <div id="action_bar">
                 <div class="dropdown_button">
-                    <button class="action_button" id="add_widget"><i class="fa fa-square-plus"></i></button>
+                    <button title="Add new widget" class="action_button" id="add_widget"><i class="fa fa-square-plus"></i></button>
                     <div class="dropdown_content">
                         <a href="Column">Column</a>
                         <a href="Pie">Pie</a>
                         <a href="Scatter">Scatter</a>
                     </div>
                 </div>
-                <button class="action_button" id="edit_widget"><i class="fa fa-pen-to-square"></i></button>
-                <button class="action_button" id="delete_widget"><i class="fa fa-square-xmark"></i></button>
-                <button class="action_button" id="new_dashboard"><i class="fa fa-arrow-up-right-from-square"></i></button>
-                <button class="action_button" id="save_dashboard"><i class="fa fa-floppy-disk"></i></button>
-                <button class="action_button" id="switch_dashboard"><i class="fa fa-bars"></i></button>
+                <button title="Enable Select-Edit" class="action_button" id="edit_widget"><i class="fa fa-pen-to-square"></i></button>
+                <button title="Delete Dashboard" class="action_button" id="delete_dashboard"><i class="fa fa-trash"></i></button>
+                <button title="Create New Dashboard" class="action_button" id="new_dashboard"><i class="fa fa-arrow-up-right-from-square"></i></button>
+                <button title="Save Dashboard" class="action_button" id="save_dashboard"><i class="fa fa-floppy-disk"></i></button>
+                <button title="Dashboard Menu" class="action_button" id="dashboard_menu"><i class="fa fa-bars"></i></button>
             </div>
         </div>
         
@@ -276,8 +276,8 @@ $('#add_widget').click(function() {
 $('#blur_backdrop').click(function() {
     $('#add_new_widget_container').toggleClass('hidden');
 })                        
-$('#close_button').click(function() {
-    // remove dashboard confirmation popup
+$('#edit_widget').click(function() {
+    $('.item').toggleClass('select-edit-active');
 })
     
 $('#add_new_widget_submit').click(function() {
