@@ -10,6 +10,11 @@ body {
     display: inline-block;
     padding-right: 3px;
     padding-left: 3px;
+    visibility: hidden;
+}
+
+.x:hover {
+    visibility: visible;
 }
 
 .resizable {
