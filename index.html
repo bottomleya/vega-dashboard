@@ -270,7 +270,8 @@
         }
     });
     
-function enableResizers() {    
+function enableResizers() {
+    $('.resizers').unbind("mouseenter mouseleave");
     $('.resizers').hover(function() {
         $(this).toggleClass('inactive');
         $(this).find('.resizer').toggleClass('hidden');
