@@ -7,8 +7,8 @@ class PieChart {
     this.item_id = "item_" + String(idStr);
     this.itemContent_id = "itemContent_" + String(idStr);
     
-    this.width="800";
-    this.height="200";
+    this.width="300";
+    this.height="300";
     
     this.htmlString = "";
     
@@ -56,6 +56,9 @@ class PieChart {
             ],
             hoverOffset: 4
           }]
+        },
+        options: {
+            maintainAspectRatio: false
         }
     });
   }
