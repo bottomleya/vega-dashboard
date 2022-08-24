@@ -17,6 +17,7 @@ class PieChart {
     this.setDOM();
     
     makeResizableDiv('#'+this.itemContent_id);
+    enableResizers();
     
     this.ctx = document.getElementById(this.canvas_id);
     
