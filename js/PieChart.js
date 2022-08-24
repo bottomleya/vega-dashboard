@@ -11,9 +11,7 @@ class PieChart {
     
     this.width="800";
     this.height="200";
-    
-    this.
-       
+           
   }
   
   setDOM() {
