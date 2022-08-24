@@ -288,7 +288,7 @@ $('#add_widget').click(function() {
                          
 $('.blur_backdrop').click(function() {
     $('#add_new_widget_container').toggleClass('hidden');
-    $('#edit_new_widget_container').toggleClass('hidden');
+    $('#edit_widget_container').toggleClass('hidden');
 })                        
 $('#enable_select-edit').click(function() {
     $('.inactive').toggleClass('inactive');
@@ -303,7 +303,11 @@ $('#add_new_widget_submit').click(function() {
     var chartType = $('input[name=select_widget]:checked').val();
     console.log("Creating new chart of type " + chartType);
     $('#add_new_widget_container').toggleClass('hidden');
-})    
+})
+    
+$('.close_button').click(function() {
+    this.parentElement.parentElement.parentElement.toggleClass('hidden');
+})
     
 $('.x').click(function() {
     this.parentElement.parentElement.parentElement.remove();
