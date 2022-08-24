@@ -19,7 +19,7 @@ class PieChart {
     item.setAttribute('class', 'item');
     item.innerHTML = this.html();
     document.body.appendChild(item);
-    grid.add(item);
+    grid.add([item]);
   }
   
   html() {
