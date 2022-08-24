@@ -297,7 +297,8 @@ $('.blur_backdrop').click(function() {
 $('#enable_select-edit').click(function() {
     $('.inactive').removeClass('inactive');
     $('.item').toggleClass('select-edit-active');
-    document.querySelector("item").onclick = function () {
+    
+    document.querySelector(".item").onclick = function () {
         $('#edit_widget_container').toggleClass('hidden');
     }
 })
