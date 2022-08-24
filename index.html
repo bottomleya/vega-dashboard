@@ -32,9 +32,9 @@
                 <div class="dropdown_button">
                     <button title="Add new widget" class="action_button" id="add_widget"><i class="fa fa-square-plus"></i></button>
                     <div class="dropdown_content">
-                        <a href="Column">Column</a>
-                        <a href="Pie">Pie</a>
-                        <a href="Scatter">Scatter</a>
+                        <a>Column</a>
+                        <a>Pie</a>
+                        <a>Scatter</a>
                     </div>
                 </div>
                 <button title="Enable Select-Edit" class="action_button" id="enable_select-edit"><i class="fa fa-pen-to-square"></i></button>
@@ -91,7 +91,7 @@
         
         
         
-    <div id="add_new_widget_container" class="hidden">
+    <div id="add_new_widget_container" class="panel_container hidden">
         <div class="blur_backdrop"></div>
         <span id="add_new_widget_panel">
             <div class="top_bar">
@@ -123,7 +123,7 @@
         
         
        
-<div id="edit_widget_container" class="hidden">
+<div id="edit_widget_container" class="panel_container hidden">
     <div class="blur_backdrop"></div>
     <span id="edit_widget_panel">
         <div class="top_bar">
@@ -310,11 +310,11 @@ $('#add_new_widget_submit').click(function() {
 })
     
 $('.close_button').click(function() {
-    this.parentElement.parentElement.parentElement.toggleClass('hidden');
+    $(this).closest('div[class=panel_container]').addClass("hidden");
 })
     
 $('.x').click(function() {
-    this.parentElement.parentElement.parentElement.remove();
+    $(this).closest('div[class=item]').remove();
 })
     
 </script>
