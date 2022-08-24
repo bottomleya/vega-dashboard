@@ -131,7 +131,7 @@ body {
 }
 
 
-#blur_backdrop {
+.blur_backdrop {
     backdrop-filter: blur(10px);
     width: 100%;
     height: 100%;
@@ -152,6 +152,30 @@ body {
 }
 
 #add_new_widget_panel {
+    z-index: 2;
+    padding: 5px;
+    color: #fff;
+    background-color: #000;
+    height:400px;
+    width:800px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-400px;
+    margin-top:-200px;
+    display:block;
+}
+#edit_widget_container {
+      background-color: transparent;y
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+}
+
+#edit_widget_panel {
     z-index: 2;
     padding: 5px;
     color: #fff;
