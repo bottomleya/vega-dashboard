@@ -1,8 +1,6 @@
 class PieChart {
-  constructor(divGrid, idStr) {
-    
-    this.grid = divGrid;
-    
+  constructor(idStr) {
+        
     this.points = [];
     
     this.canvas_id = "canvas_" + String(idStr);
