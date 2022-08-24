@@ -116,7 +116,9 @@ body {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown_content a:hover {background-color: #ddd}
+.dropdown_content a:hover {
+    background-color: #ddd;
+}
 
 /* Show the dropdown menu on hover */
 .dropdown_button:hover .dropdown_content {
@@ -238,4 +240,12 @@ body {
 
 .grid {
     margin: 20px;
+}
+
+.select-edit-active {
+    filter: grayscale(0.8);
+}
+
+.select-edit-active:hover {
+    filter: grayscale(0);
 }
