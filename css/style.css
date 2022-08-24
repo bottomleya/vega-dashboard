@@ -271,5 +271,5 @@ body {
 }
 
 .select-edit-active:hover {
-    filter: grayscale(0) saturate(3);
+    filter: grayscale(0) saturate(3) brightness(1.5);
 }
