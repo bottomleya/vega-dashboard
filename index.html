@@ -270,12 +270,13 @@
         }
     });
     
-    
-$('.resizers').hover(function() {
-    $(this).toggleClass('inactive');
-    $(this).find('.resizer').toggleClass('hidden');
-    //$(this).find('.x').toggleClass('hidden');
-});
+function enableResizers() {    
+    $('.resizers').hover(function() {
+        $(this).toggleClass('inactive');
+        $(this).find('.resizer').toggleClass('hidden');
+        //$(this).find('.x').toggleClass('hidden');
+    });
+}()
     
 Chart.defaults.global.defaultFontColor = "#fff";
 
