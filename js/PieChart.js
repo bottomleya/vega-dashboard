@@ -43,7 +43,7 @@ class PieChart {
     var gridItemList = grid.getItems();
     for (let i=0; i<gridItemList.length; i++) {
       if (gridItemList[i].getElement().id == this.item_id) {
-        this.order = i + 1;
+        this.order = i;
       }
     }
   }
