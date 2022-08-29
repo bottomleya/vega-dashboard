@@ -7,12 +7,10 @@ class PieChart {
     this.item_id = "item_" + String(idStr);
     this.itemContent_id = "itemContent_" + String(idStr);
     
-    this.config = {
-      title:      "Default Pie Chart",
-      width:      "300",
-      height:     "300",
-      points:     []      
-    }
+    
+    this.title = [];
+    
+    this.points = [];
     
     this.htmlString = "";
     
@@ -55,17 +53,17 @@ class PieChart {
     let data = [];
     let colors = [];
     // parse points
-    for (let i=0; i<this.config.points.length; i++) {
-      labels.push(this.config.points[i].displayName);
-      data.push(this.config.points[i].values[0]);
-      colors.push(this.config.points[i].color);
+    for (let i=0; i<this.points.length; i++) {
+      labels.push(this.points[i].displayName);
+      data.push(this.points[i].values[0]);
+      colors.push(this.points[i].color);
     }
     this.chart = new Chart(this.ctx, {
         type: 'doughnut',
         data: {
           labels: labels,
           datasets: [{
-            label: this.config.title,
+            label: this.title,
             data: data,
             backgroundColor: colors,
             hoverOffset: 4
@@ -75,6 +73,35 @@ class PieChart {
             maintainAspectRatio: false
         }
     });
+  }
+  
+  getConfig() {
+    
+    let config = [];
+    for (let i=0; i<this.points.length; i++) {
+      config.push(['\<input type=\"text\" value=\"' + this.points[i].name + '\"\>',
+                   '\<input type=\"text\" value=\"' + this.points[i].displayName + '\"\>',
+                   '\<input type=\"text\" value=\"' + this.points[i].units + '\"\>',
+                   '\<input type=\"color\" value=\"' + this.points[i].color + '\"\>',
+                   '\<input type=\"text\" value=\"' + this.points[i].values + '\"\>']); 
+    }
+    
+    var dataObject = {
+      columns: [{
+        title: "Point Name"
+      }, {
+        title: "Display Name"
+      }, {
+        title: "Units"
+      }, {
+        title: "Color"
+      }, {
+        title: "Values"
+      }],
+      data: config
+    };
+    
+    return dataObject;
   }
   
 }
