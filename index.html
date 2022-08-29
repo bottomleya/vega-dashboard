@@ -239,25 +239,23 @@ $('#enable_select-edit').click(function() {
         // setup form based on item clicked
         for (let i=0; i<itemList.length; i++) {
             if (itemList[i].item_id == this.id) {
-                var table = $('#edit_widget_table').DataTable({
-                    "columns": [{
-                        "data": "key",
-                        "title": "Key"
-                    },{
-                        "data": "value",
-                        "title": "Value"
+                  var dataObject = {
+                    columns: [{
+                      title: "Parameter"
+                    }, {
+                      title: "Value"
                     }],
-                    "initComplete": function() {
-                        this.api().rows.add(JSON.stringify(itemList[i].config).slice(2, -2).split('","').map((c)=>({
-                            "key": c.split('":"')[0],
-                            "value": c.split('":"')[1]
-                        }))).draw();
-                    }
+                    data: this.getConfig
+                  };
+                  var columns = [];
+                  $('#edit_widget_table').dataTable({
+                    "data": dataObject.data,
+                    "columns": dataObject.columns
+                  });
                 });
                 break;
             }
         }
-        $("#edit_widget_panel .panelSection").innerHtml = html;
         $('#edit_widget_container').toggleClass('hidden');
     })
     
