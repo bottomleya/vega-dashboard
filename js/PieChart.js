@@ -1,5 +1,7 @@
 class PieChart {
   constructor(idStr) {
+    
+    this.order = 0;
         
     this.points = [];
     
@@ -20,7 +22,6 @@ class PieChart {
     this.ctx = document.getElementById(this.canvas_id);
     
     this.createChart();
-           
   }
   
   setDOM() {
@@ -30,11 +31,20 @@ class PieChart {
     item.innerHTML = this.html();
     document.body.appendChild(item);
     grid.add([item]);
+    this.saveOrder();
   }
   
   html() {
     this.htmlString = "<div class=\"item-content resizable\" id=\"" + this.itemContent_id + "\"><div class=\"x\"><i class=\"fa fa-xmark\"></i></div><div class=\"resizers inactive\"><div class=\"resizer bottom-right hidden\"></div><canvas id=\"" + this.canvas_id + "\" width=\"" + String(this.width) +"\" height=\"" + String(this.height) + "\"></canvas></div></div>";
     return this.htmlString
+  }
+  
+  saveOrder() {
+    var gridItemList = grid.getItems();
+    for (let i=0; i<gridItemList.length; i++) {
+      if (gridItemList[i].getElement().id == this.item_id) {
+        this.order = i + 1;
+      }
   }
   
   createChart() {
