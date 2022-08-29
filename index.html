@@ -256,7 +256,7 @@ $('.close_button').click(function() {
 })
     
 $('#add_pie_chart_button').click(function() {
-    itemList.append(new PieChart("id" + (new Date()).getTime()));
+    itemList.push(new PieChart("id" + (new Date()).getTime()));
 })
     
 $('.x').click(function() {
