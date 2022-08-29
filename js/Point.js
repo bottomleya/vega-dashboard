@@ -8,7 +8,7 @@ class Point {
     this.label          =   false;
     this.categorical    =   false;
     this.color          =   'rgb(54, 162, 235)';
-    this.value          =   null;
+    this.values          =   [50];
   }
   
   setName(name) {
