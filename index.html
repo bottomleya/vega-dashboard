@@ -239,14 +239,7 @@ $('#enable_select-edit').click(function() {
         // setup form based on item clicked
         for (let i=0; i<itemList.length; i++) {
             if (itemList[i].item_id == this.id) {
-                  var dataObject = {
-                    columns: [{
-                      title: "Parameter"
-                    }, {
-                      title: "Value"
-                    }],
-                    data: this.getConfig
-                  };
+                  var dataObject = this.getDataObject();
                   var columns = [];
                   $('#edit_widget_table').dataTable({
                     "data": dataObject.data,
