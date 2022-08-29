@@ -92,38 +92,6 @@
     
         
         
-        
-    <div id="add_new_widget_container" class="panel_container hidden">
-        <div class="blur_backdrop"></div>
-        <span id="add_new_widget_panel">
-            <div class="top_bar">
-                <button class="action_button close_button"><i class="fa fa-xmark"></i></button>
-            </div>
-            <div class="panel_header">Add New Widget</div>
-            <div class="panel_section">
-                <label for="select_widget">Select Widget</label><br>
-                <input type="radio" id="Column" name="select_widget" value="Column">
-                <label for="Column">Column</label><br>
-                    
-                <input type="radio" id="Bar" name="select_widget" value="Bar">
-                <label for="Bar">Bar</label><br>
-                    
-                <input type="radio" id="Line" name="select_widget" value="Line">
-                <label for="Line">Line</label><br>
-                    
-                <input type="radio" id="Pie" name="select_widget" value="Pie">
-                <label for="Pie">Pie</label><br>
-                
-                <input type="radio" id="Scatter" name="select_widget" value="Scatter">
-                <label for="Scatter">Scatter</label><br>
-                    
-                <button id="add_new_widget_submit">Submit</button>
-                
-            </div>
-        </span>
-    </div> 
-        
-        
        
 <div id="edit_widget_container" class="panel_container hidden">
     <div class="blur_backdrop"></div>
@@ -290,9 +258,7 @@ makeResizableDiv('#item3');
 makeResizableDiv('#item4');
     
     
-$('#add_widget').click(function() {
-    $('#add_new_widget_container').toggleClass('hidden');
-})
+
                          
 $('.blur_backdrop').click(function() {
     resetLayout();
@@ -309,9 +275,10 @@ $('#enable_select-edit').click(function() {
     $('.inactive').toggleClass('inactive');
     $('.item').toggleClass('select-edit-active');
     
-    document.querySelector(".item").onclick = function () {
+    $('.item').click(function() {
         $('#edit_widget_container').toggleClass('hidden');
-    }
+    })
+    
 })
     
 $('#add_new_widget_submit').click(function() {
