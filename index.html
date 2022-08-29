@@ -80,15 +80,10 @@
               return true;
             }
             // save sort order
+              saveOrder();
           },
     });
-    
-    // add event listener for any ordering changes
-    grid.on('sort', function (currentOrder, previousOrder) {
-      console.log(currentOrder);
-      console.log(previousOrder);
-    });
-    
+        
     const ctx = $('#myChart');
     const myChart = new Chart(ctx, {
         type: 'bar',
@@ -219,7 +214,7 @@ makeResizableDiv('#item2');
 makeResizableDiv('#item3');
 makeResizableDiv('#item4');
     
-    
+itemList = [];    
 
                          
 $('.blur_backdrop').click(function() {
@@ -244,6 +239,11 @@ $('#enable_select-edit').click(function() {
     
 })
 
+function saveOrder() {
+    for (let i=0; i<itemList.length; i++) {
+        itemList[i].saveOrder();
+    }
+}
     
 $('#add_new_widget_submit').click(function() {
     var chartType = $('input[name=select_widget]:checked').val();
@@ -256,7 +256,7 @@ $('.close_button').click(function() {
 })
     
 $('#add_pie_chart_button').click(function() {
-    new PieChart("id" + (new Date()).getTime());
+    itemList.append(new PieChart("id" + (new Date()).getTime()));
 })
     
 $('.x').click(function() {
