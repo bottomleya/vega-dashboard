@@ -2,15 +2,17 @@ class PieChart {
   constructor(idStr) {
     
     this.order = 0;
-        
-    this.points = [];
     
     this.canvas_id = "canvas_" + String(idStr);
     this.item_id = "item_" + String(idStr);
     this.itemContent_id = "itemContent_" + String(idStr);
     
-    this.width="300";
-    this.height="300";
+    this.config = {
+      title:      "Default Pie Chart",
+      width:      "300",
+      height:     "300",
+      points:     []      
+    }
     
     this.htmlString = "";
     
@@ -49,22 +51,23 @@ class PieChart {
   }
   
   createChart() {
+    let labels = [];
+    let data = [];
+    let colors = [];
+    // parse points
+    for (let i=0; i<this.config.points.length; i++) {
+      labels.push(this.config.points[i].displayName);
+      data.push(this.config.points[i].values[0]);
+      colors.push(this.config.points[i].color);
+    }
     this.chart = new Chart(this.ctx, {
         type: 'doughnut',
         data: {
-          labels: [
-            'Red',
-            'Blue',
-            'Yellow'
-          ],
+          labels: labels,
           datasets: [{
-            label: 'My First Dataset',
-            data: [300, 50, 100],
-            backgroundColor: [
-              'rgb(255, 99, 132)',
-              'rgb(54, 162, 235)',
-              'rgb(255, 205, 86)'
-            ],
+            label: this.config.title,
+            data: data,
+            backgroundColor: colors,
             hoverOffset: 4
           }]
         },
