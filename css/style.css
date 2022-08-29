@@ -125,6 +125,7 @@ body {
 /* Show the dropdown menu on hover */
 .dropdown_button:hover .dropdown_content {
   display: block;
+  text-align: left;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
