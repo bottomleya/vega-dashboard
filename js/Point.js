@@ -33,6 +33,6 @@ class Point {
     this.color = color;
   }
   setValue(value) {
-    this.value = value;
+    this.values = [value];
   }
 }
