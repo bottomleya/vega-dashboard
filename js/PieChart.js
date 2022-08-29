@@ -45,6 +45,7 @@ class PieChart {
       if (gridItemList[i].getElement().id == this.item_id) {
         this.order = i + 1;
       }
+    }
   }
   
   createChart() {
