@@ -50,6 +50,11 @@ class PieChart {
   
   addPoint(name) {
     this.points.push(new Point(name));
+    this.setDOM();
+    
+    makeResizableDiv('#'+this.itemContent_id);
+    enableResizers();
+    
     this.createChart();
   }
   
