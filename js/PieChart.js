@@ -48,6 +48,10 @@ class PieChart {
     }
   }
   
+  addPoint(name) {
+    this.points.push(New Point(name));
+  }
+  
   createChart() {
     let labels = [];
     let data = [];
