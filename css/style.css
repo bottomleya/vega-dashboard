@@ -192,14 +192,15 @@ body {
     padding: 5px;
     color: #fff;
     background-color: #000;
-    height:400px;
-    width:800px;
+    height:600px;
+    width:1200px;
     position:absolute;
     top:50%;
     left:50%;
     margin-left:-400px;
     margin-top:-200px;
     display:block;
+    overflow: scroll;
 }
 
 #documentTable_wrapper {
