@@ -258,8 +258,9 @@ function resetEditWidgetTable() {
     $('#add_new_point_button').click(function() {
         for (let i=0; i<itemList.length; i++) {
             if (itemList[i].item_id == selectedWidget_id) {
-              itemList[i].addPoint($('#add_new_point_pointName').value);
-              $('#edit_widget_table').dataTable().row.add(dataObject.data).draw(false);
+              itemList[i].addPoint($('#add_new_point_pointName')[0].value);
+              let new_data = itemList[i].getConfig().data[itemList[i].getConfig().data.length-1]
+              $('#edit_widget_table').dataTable().row.add([new_data]).draw(false);
             }
         }
     })
@@ -305,12 +306,6 @@ function saveOrder() {
         itemList[i].saveOrder();
     }
 }
-    
-$('#add_new_widget_submit').click(function() {
-    var chartType = $('input[name=select_widget]:checked').val();
-    console.log("Creating new chart of type " + chartType);
-    $('#add_new_widget_container').toggleClass('hidden');
-})
     
 $('.close_button').click(function() {
     resetLayout();
