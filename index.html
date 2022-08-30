@@ -254,7 +254,7 @@ function resetEditWidgetTable() {
     $('#edit_widget_table').dataTable({
         "columns": columns,
         "data": data,
-        "initcomplete": function() {
+        "drawCallback": function() {
             $('#add_new_point_button').click(function() {
                 for (let i=0; i<itemList.length; i++) {
                     if (itemList[i].item_id == selectedWidget_id) {
