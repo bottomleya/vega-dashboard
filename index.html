@@ -256,7 +256,7 @@ function resetEditWidgetTable() {
     $('#add_new_point_button').click(function() {
         for (let i=0; i<itemList.length; i++) {
             if (itemList[i].item_id == widget_id) {
-              itemList[i].addPoint($('#add_new_point_pointName").value);
+              itemList[i].addPoint($('#add_new_point_pointName').value);
               $('#edit_widget_table').dataTable().row.add(dataObject.data).draw(false);
             }
         }
