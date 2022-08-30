@@ -60,9 +60,9 @@ class PieChart {
     this.colors = [];
     // parse points
     for (let i=0; i<this.points.length; i++) {
-      labels.push(this.points[i].displayName);
-      data.push(this.points[i].values[0]);
-      colors.push(this.points[i].color);
+      this.labels.push(this.points[i].displayName);
+      this.data.push(this.points[i].values[0]);
+      this.colors.push(this.points[i].color);
     }
   }
   
