@@ -302,7 +302,7 @@ function createEditWidgetTable() {
             if (itemList[i].item_id == this.id) {
               var dataObject = itemList[i].getConfig();
               if (dataObject.data.length > 0) {
-                  $('#edit_widget_table').dataTable().rows.add(dataObject.data).draw(true);
+                  editWidgetTable.rows.add(dataObject.data).draw(true);
               }
             }
         }
