@@ -3,6 +3,15 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.bounding_box {
+    position: absolute;
+    height: auto;
+    border: 1px solid grey;
+    padding:10px;
+    margin:10px;
+    clear:both;
+}
+
 .x {
     top: 0px;
     right: 0px;
