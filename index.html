@@ -224,8 +224,10 @@ itemList = [];
     
 selectedWidget_id = "";
    
+$(document).ready(function() {
+    editWidgetTable = $('#edit_widget_table').DataTable();
+})
 
-editWidgetTable = $('#edit_widget_table').DataTable();
     
 function resetEditWidgetTable() {
     if ($.fn.DataTable.isDataTable('#edit_widget_table')) {
