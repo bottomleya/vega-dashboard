@@ -69,7 +69,7 @@
         <div class="panel_header">Edit Widget</div>
         <div class="panel_section">
             <table id="edit_widget_table"></table>
-            <button id="edit_widget_submit">Submit</button>
+            <button id="edit_widget_ok">OK</button>
         </div>
     </span>
 </div> 
@@ -224,14 +224,23 @@ itemList = [];
     
 selectedWidget_id = "";
    
-    
+function add_new_point() {
+    for (let i=0; i<itemList.length; i++) {
+        if (itemList[i].item_id == selectedWidget_id) {
+          itemList[i].addPoint($('#add_new_point_pointName')[0].value);
+          let new_data = itemList[i].getConfig().data[itemList[i].getConfig().data.length-1]
+          editWidgetTable.rows.add([new_data]).draw(false);
+        }
+    }
+}
+                                  
 function resetEditWidgetTable() {
     if ($.fn.DataTable.isDataTable('#edit_widget_table')) {
         editWidgetTable = $('#edit_widget_table').DataTable();
         editWidgetTable.destroy();
     }
         
-    let data = [['\<i id=\"add_new_point_button\" class=\"action_button fa-solid fa-circle-plus\"\>\<\/i\>',
+    let data = [['\<i id=\"add_new_point_button\" onclick=\"add_new_point()\" class=\"action_button fa-solid fa-circle-plus\"\>\<\/i\>',
                  '\<input id=\"add_new_point_pointName\" type=\"text\" value=\"\"\>',
                  '\<input id=\"add_new_point_displayName\" type=\"text\" value=\"\"\>',
                  '\<input id=\"add_new_point_units\" type=\"text\" value=\"\"\>',
@@ -253,18 +262,7 @@ function resetEditWidgetTable() {
     
     $('#edit_widget_table').dataTable({
         "columns": columns,
-        "data": data,
-        "drawCallback": function() {
-            $('#add_new_point_button').click(function() {
-                for (let i=0; i<itemList.length; i++) {
-                    if (itemList[i].item_id == selectedWidget_id) {
-                      itemList[i].addPoint($('#add_new_point_pointName')[0].value);
-                      let new_data = itemList[i].getConfig().data[itemList[i].getConfig().data.length-1]
-                      editWidgetTable.rows.add([new_data]).draw(false);
-                    }
-                }
-            })
-        }
+        "data": data
     });
 }
 $(document).ready(function() {
