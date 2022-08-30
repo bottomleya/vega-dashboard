@@ -224,10 +224,7 @@ itemList = [];
 
 function resetEditWidgetTable() {
     var table = $('#edit_widget_table')
-    if (!$.fn.DataTable.isDataTable('#edit_widget_table')) {
-       return;
-    }
-    else {
+    if ($.fn.DataTable.isDataTable('#edit_widget_table')) {
         var table = $('#edit_widget_table').DataTable();
         table.destroy();
     }
