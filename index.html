@@ -223,11 +223,15 @@ makeResizableDiv('#item4');
 itemList = [];
 
 function resetEditWidgetTable() {
-    console.log($("#edit_widget_table").dataTable().length);
-    if ($("#edit_widget_table").dataTable().length) {
-        $("#edit_widget_table").dataTable().fnDestroy();
+    var table = $('#edit_widget_table')
+    if (!$.fn.DataTable.isDataTable('#edit_widget_table')) {
+       return;
     }
-    
+    else {
+        var table = $('#edit_widget_table').DataTable();
+        table.destroy();
+    }
+        
     let data = ['\<i id=\"add_new_point_button\" class=\"action_button fa-solid fa-circle-plus\"\>\<\/i\>',
                  '\<input type=\"text\" value=\"\"\>',
                  '\<input type=\"text\" value=\"\"\>',
