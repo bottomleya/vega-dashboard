@@ -236,14 +236,14 @@ function resetLayout() {
 }
     
 $('#enable_select-edit').click(function() {
-    $('.inactive').toggleClass('inactive');
+    $('.resizers').toggleClass('inactive');
     $('.item').toggleClass('select-edit-active');
     
     $('.item').click(function() {
         // setup form based on item clicked
         for (let i=0; i<itemList.length; i++) {
             if (itemList[i].item_id == this.id) {
-              var dataObject = this.getConfig();
+              var dataObject = itemList[i].getConfig();
               var columns = [];
               $('#edit_widget_table').dataTable({
                 "data": dataObject.data,
