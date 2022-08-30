@@ -229,12 +229,12 @@ function resetEditWidgetTable() {
         table.destroy();
     }
         
-    let data = ['\<i id=\"add_new_point_button\" class=\"action_button fa-solid fa-circle-plus\"\>\<\/i\>',
+    let data = [['\<i id=\"add_new_point_button\" class=\"action_button fa-solid fa-circle-plus\"\>\<\/i\>',
                  '\<input type=\"text\" value=\"\"\>',
                  '\<input type=\"text\" value=\"\"\>',
                  '\<input type=\"text\" value=\"\"\>',
                  '\<input type=\"color\" value=\"\#FFFFFF\"\>',
-                 '\<input type=\"text\" value=\"\"\>'];
+                 '\<input type=\"text\" value=\"\"\>']];
   let columns = [{
         title: ""
       }, {
@@ -250,9 +250,11 @@ function resetEditWidgetTable() {
       }];
     
     $('#edit_widget_table').dataTable({
-        "data": data,
-        "columns": columns
+        "columns": columns,
+        "data": data
     });
+    
+    //$('#edit_widget_table').dataTable().row.add(data).draw(false);
 }
 
                          
