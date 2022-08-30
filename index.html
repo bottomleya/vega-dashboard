@@ -223,6 +223,7 @@ makeResizableDiv('#item4');
 itemList = [];
 
 function resetEditWidgetTable() {
+    console.log($("#edit_widget_table").dataTable().length);
     if ($("#edit_widget_table").dataTable().length) {
         $("#edit_widget_table").dataTable().fnDestroy();
     }
