@@ -83,14 +83,6 @@ class PieChart {
   getConfig() {
     
     let config = [];
-    // push blank row for adding new points
-    config.push(['\<i class=\"fa-solid fa-circle-plus\"\>\<\/i\>',
-                 '\<input type=\"text\" value=\"\"\>',
-                 '\<input type=\"text\" value=\"\"\>',
-                 '\<input type=\"text\" value=\"\"\>',
-                 '\<input type=\"color\" value=\"\#FFFFFF\"\>',
-                 '\<input type=\"text\" value=\"\"\>']);
-    // add rest of points below
     for (let i=0; i<this.points.length; i++) {
         config.push(['',
                    '\<input type=\"text\" value=\"' + this.points[i].name + '\"\>',
