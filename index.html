@@ -221,6 +221,8 @@ makeResizableDiv('#item3');
 makeResizableDiv('#item4');
     
 itemList = [];
+    
+selectedWidget_id = "";
 
 function resetEditWidgetTable() {
     var table = $('#edit_widget_table')
@@ -255,12 +257,11 @@ function resetEditWidgetTable() {
     });
     $('#add_new_point_button').click(function() {
         for (let i=0; i<itemList.length; i++) {
-            if (itemList[i].item_id == widget_id) {
+            if (itemList[i].item_id == selectedWidget_id) {
               itemList[i].addPoint($('#add_new_point_pointName').value);
               $('#edit_widget_table').dataTable().row.add(dataObject.data).draw(false);
             }
         }
-        this.parentElement
     })
 }
 
@@ -284,10 +285,10 @@ $('#enable_select-edit').click(function() {
     $('.item').click(function() {
         // reset widget table
         resetEditWidgetTable();
+        selectedWidget_id = this.id;
         // setup form based on item clicked
         for (let i=0; i<itemList.length; i++) {
             if (itemList[i].item_id == this.id) {
-              var widget_id = this.id;
               var dataObject = itemList[i].getConfig();
               if (dataObject.data.length > 0) {
                   $('#edit_widget_table').dataTable().row.add(dataObject.data).draw(false);
