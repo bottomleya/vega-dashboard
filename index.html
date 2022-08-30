@@ -220,7 +220,38 @@ makeResizableDiv('#item2');
 makeResizableDiv('#item3');
 makeResizableDiv('#item4');
     
-itemList = [];    
+itemList = [];
+
+resetEditWidgetTable() {
+    if ($("#edit_widget_table").dataTable().length) {
+        $("#edit_widget_table").dataTable().fnDestroy();
+    }
+    
+    let data = ['\<i id=\"add_new_point_button\" class=\"action_button fa-solid fa-circle-plus\"\>\<\/i\>',
+                 '\<input type=\"text\" value=\"\"\>',
+                 '\<input type=\"text\" value=\"\"\>',
+                 '\<input type=\"text\" value=\"\"\>',
+                 '\<input type=\"color\" value=\"\#FFFFFF\"\>',
+                 '\<input type=\"text\" value=\"\"\>'];
+  let columns: [{
+        title: ""
+      }, {
+        title: "Point Name"
+      }, {
+        title: "Display Name"
+      }, {
+        title: "Units"
+      }, {
+        title: "Color"
+      }, {
+        title: "Values"
+      }]
+    
+    $('#edit_widget_table').dataTable({
+        "data": data,
+        "columns": columns
+    });
+}
 
                          
 $('.blur_backdrop').click(function() {
@@ -240,15 +271,13 @@ $('#enable_select-edit').click(function() {
     $('.item').toggleClass('select-edit-active');
     
     $('.item').click(function() {
+        // reset widget table
+        resetEditWidgetTable();
         // setup form based on item clicked
         for (let i=0; i<itemList.length; i++) {
             if (itemList[i].item_id == this.id) {
               var dataObject = itemList[i].getConfig();
-              var columns = [];
-              $('#edit_widget_table').dataTable({
-                "data": dataObject.data,
-                "columns": dataObject.columns
-              });
+              $('#edit_widget_table').dataTable().row.add(dataObject.data).draw(false);
             }
         }
         $('#edit_widget_container').toggleClass('hidden');
