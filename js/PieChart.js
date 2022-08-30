@@ -49,7 +49,7 @@ class PieChart {
   }
   
   addPoint(name) {
-    this.points.push(New Point(name));
+    this.points.push(new Point(name));
   }
   
   createChart() {
