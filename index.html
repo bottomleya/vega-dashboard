@@ -230,11 +230,11 @@ function resetEditWidgetTable() {
     }
         
     let data = [['\<i id=\"add_new_point_button\" class=\"action_button fa-solid fa-circle-plus\"\>\<\/i\>',
-                 '\<input type=\"text\" value=\"\"\>',
-                 '\<input type=\"text\" value=\"\"\>',
-                 '\<input type=\"text\" value=\"\"\>',
-                 '\<input type=\"color\" value=\"\#FFFFFF\"\>',
-                 '\<input type=\"text\" value=\"\"\>']];
+                 '\<input id=\"add_new_point_pointName\" type=\"text\" value=\"\"\>',
+                 '\<input id=\"add_new_point_displayName\" type=\"text\" value=\"\"\>',
+                 '\<input id=\"add_new_point_units\" type=\"text\" value=\"\"\>',
+                 '\<input id=\"add_new_point_color\" type=\"color\" value=\"\#FFFFFF\"\>',
+                 '\<input id=\"add_new_point_values\" type=\"text\" value=\"\"\>']];
   let columns = [{
         title: ""
       }, {
@@ -253,8 +253,15 @@ function resetEditWidgetTable() {
         "columns": columns,
         "data": data
     });
-    
-    //$('#edit_widget_table').dataTable().row.add(data).draw(false);
+    $('#add_new_point_button').click(function() {
+        for (let i=0; i<itemList.length; i++) {
+            if (itemList[i].item_id == widget_id) {
+              itemList[i].addPoint($('#add_new_point_pointName").value);
+              $('#edit_widget_table').dataTable().row.add(dataObject.data).draw(false);
+            }
+        }
+        this.parentElement
+    })
 }
 
                          
@@ -280,6 +287,7 @@ $('#enable_select-edit').click(function() {
         // setup form based on item clicked
         for (let i=0; i<itemList.length; i++) {
             if (itemList[i].item_id == this.id) {
+              var widget_id = this.id;
               var dataObject = itemList[i].getConfig();
               if (dataObject.data.length > 0) {
                   $('#edit_widget_table').dataTable().row.add(dataObject.data).draw(false);
