@@ -95,9 +95,6 @@ class PieChart {
             backgroundColor: this.colors,
             hoverOffset: 4
           }]
-        },
-        options: {
-            maintainAspectRatio: false
         };
     this.chart.update();
   }
