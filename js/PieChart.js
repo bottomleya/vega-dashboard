@@ -58,24 +58,28 @@ class PieChart {
     this.createChart();
   }
   
-  createChart() {
-    let labels = [];
-    let data = [];
-    let colors = [];
+  parsePoints() {
+    this.labels = [];
+    this.data = [];
+    this.colors = [];
     // parse points
     for (let i=0; i<this.points.length; i++) {
       labels.push(this.points[i].displayName);
       data.push(this.points[i].values[0]);
       colors.push(this.points[i].color);
     }
+  }
+  
+  createChart() {
+    this.parsePoints();
     this.chart = new Chart(this.ctx, {
         type: 'doughnut',
         data: {
-          labels: labels,
+          labels: this.labels,
           datasets: [{
             label: this.title,
-            data: data,
-            backgroundColor: colors,
+            data: this.data,
+            backgroundColor: this.colors,
             hoverOffset: 4
           }]
         },
@@ -83,6 +87,23 @@ class PieChart {
             maintainAspectRatio: false
         }
     });
+  }
+  
+  updateChart() {
+    this.parsePoints();
+    this.chart.data = {
+          labels: this.labels,
+          datasets: [{
+            label: this.title,
+            data: this.data,
+            backgroundColor: this.colors,
+            hoverOffset: 4
+          }]
+        },
+        options: {
+            maintainAspectRatio: false
+        };
+    this.chart.update();
   }
   
   getConfig() {
