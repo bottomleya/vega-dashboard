@@ -290,9 +290,16 @@ $('#enable_select-edit').click(function() {
     
     $('.item').click(function() {
         // reset widget table
-        resetEditWidgetTable();
         selectedWidget_id = this.id;
-        // setup form based on item clicked
+        createEditWidgetTable();
+        
+    })
+    
+})
+    
+function createEditWidgetTable() {
+    // setup form based on item clicked
+        resetEditWidgetTable();
         for (let i=0; i<itemList.length; i++) {
             if (itemList[i].item_id == this.id) {
               var dataObject = itemList[i].getConfig();
@@ -302,9 +309,7 @@ $('#enable_select-edit').click(function() {
             }
         }
         $('#edit_widget_container').toggleClass('hidden');
-    })
-    
-})
+}
 
 function saveOrder() {
     for (let i=0; i<itemList.length; i++) {
@@ -317,7 +322,10 @@ $('.close_button').click(function() {
 })
     
 $('#add_pie_chart_button').click(function() {
-    itemList.push(new PieChart("id" + (new Date()).getTime()));
+    let newChart = new PieChart("id" + (new Date()).getTime())
+    itemList.push(newChart);
+    selectedWidget_id = newChart.item_id;
+    createEditWidgetTable();
 })
     
 $('.x').click(function() {
