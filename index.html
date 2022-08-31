@@ -232,6 +232,7 @@ function add_new_point() {
                                $('#add_new_point_units')[0].value,
                                $('#add_new_point_color')[0].value,
                                $('#add_new_point_values')[0].value);
+          // get newly added point
           let new_data = itemList[i].getConfig().data[itemList[i].getConfig().data.length-1]
           editWidgetTable.rows.add([new_data]).draw(false);
         }
@@ -302,6 +303,7 @@ $('#enable_select-edit').click(function() {
 function createEditWidgetTable() {
     // setup form based on item clicked
     resetEditWidgetTable();
+    console.log(this.id);
     for (let i=0; i<itemList.length; i++) {
         if (itemList[i].item_id == this.id) {
           var dataObject = itemList[i].getConfig();
