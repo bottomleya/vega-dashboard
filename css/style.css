@@ -286,3 +286,7 @@ body {
 .select-edit-active:hover {
     filter: grayscale(0) saturate(3) brightness(1.5);
 }
+
+tbody>tr:nth-child(1) td {
+    background-color: #5a5a5a;
+}
