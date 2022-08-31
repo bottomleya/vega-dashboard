@@ -223,11 +223,15 @@ makeResizableDiv('#item4');
 itemList = [];
     
 selectedWidget_id = "";
-   
+   name, displayName, units, colorStr, values
 function add_new_point() {
     for (let i=0; i<itemList.length; i++) {
         if (itemList[i].item_id == selectedWidget_id) {
-          itemList[i].addPoint($('#add_new_point_pointName')[0].value);
+          itemList[i].addPoint($('#add_new_point_pointName')[0].value,
+                               $('#add_new_point_displayName')[0].value,
+                               $('#add_new_point_units')[0].value,
+                               $('#add_new_point_colorStr')[0].value,
+                               $('#add_new_point_values')[0].value);
           let new_data = itemList[i].getConfig().data[itemList[i].getConfig().data.length-1]
           editWidgetTable.rows.add([new_data]).draw(false);
         }
