@@ -303,14 +303,10 @@ $('#enable_select-edit').click(function() {
 function createEditWidgetTable() {
     // setup form based on item clicked
     resetEditWidgetTable();
-    console.log(this.id);
     for (let i=0; i<itemList.length; i++) {
-        if (itemList[i].item_id == this.id) {
+        if (itemList[i].item_id == selectedWidget_id) {
           var dataObject = itemList[i].getConfig();
-            console.log(dataObject);
           if (dataObject.data.length > 0) {
-              console.log(dataObject.data);
-              console.log(editWidgetTable);
               editWidgetTable.rows.add(dataObject.data).draw(true);
           }
         }
