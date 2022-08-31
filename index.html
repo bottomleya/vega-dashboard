@@ -230,7 +230,7 @@ function add_new_point() {
           itemList[i].addPoint($('#add_new_point_pointName')[0].value,
                                $('#add_new_point_displayName')[0].value,
                                $('#add_new_point_units')[0].value,
-                               $('#add_new_point_colorStr')[0].value,
+                               $('#add_new_point_color')[0].value,
                                $('#add_new_point_values')[0].value);
           let new_data = itemList[i].getConfig().data[itemList[i].getConfig().data.length-1]
           editWidgetTable.rows.add([new_data]).draw(false);
