@@ -2,7 +2,7 @@
 class Point {
   constructor( name, 
                displayName   =   "",
-               units         =   "no-units"
+               units         =   "no-units",
                colorStr      =   "#36a2eb",
                values        =   "") {
     
