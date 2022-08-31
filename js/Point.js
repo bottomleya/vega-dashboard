@@ -1,14 +1,26 @@
 
 class Point {
-  constructor(name) {
+  constructor( name, 
+               displayName   =   "",
+               units         =   "no-units"
+               colorStr      =   "#36a2eb",
+               values        =   "") {
+    
     this.name           =   name;
-    this.displayName    =   name;
-    this.units          =   "";
+    if (displayName == "") {
+      this.displayName  =   name;
+    } else {
+      this.displayName  =   displayName;
+    }
+    this.units          =   units;
+    this.color          =   colorStr;
+    this.values         =   values.split(",").map(Number);
+    
+    // additional parameters for future
     this.feature        =   false;
     this.label          =   false;
     this.categorical    =   false;
-    this.color          =   'rgb(54, 162, 235)';
-    this.values          =   [50];
+
   }
   
   setName(name) {
