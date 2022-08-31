@@ -301,16 +301,19 @@ $('#enable_select-edit').click(function() {
     
 function createEditWidgetTable() {
     // setup form based on item clicked
-        resetEditWidgetTable();
-        for (let i=0; i<itemList.length; i++) {
-            if (itemList[i].item_id == this.id) {
-              var dataObject = itemList[i].getConfig();
-              if (dataObject.data.length > 0) {
-                  editWidgetTable.rows.add(dataObject.data).draw(true);
-              }
-            }
+    resetEditWidgetTable();
+    for (let i=0; i<itemList.length; i++) {
+        if (itemList[i].item_id == this.id) {
+          var dataObject = itemList[i].getConfig();
+            console.log(dataObject);
+          if (dataObject.data.length > 0) {
+              console.log(dataObject.data);
+              console.log(editWidgetTable);
+              editWidgetTable.rows.add(dataObject.data).draw(true);
+          }
         }
-        $('#edit_widget_container').toggleClass('hidden');
+    }
+    $('#edit_widget_container').toggleClass('hidden');
 }
 
 function saveOrder() {
