@@ -51,6 +51,9 @@ class PieChart {
   setPoints(pointsObj) {
     this.points = pointsObj;
   }
+  setOptions(optionsObj = {}) {
+    this.options = optionsObj;
+  }
   
   parsePoints() {
     this.labels = [];
