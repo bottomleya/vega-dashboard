@@ -101,37 +101,4 @@ class PieChart {
         };
     this.chart.update();
   }
-  
-  getConfig() {
-    
-    let config = [];
-    for (let i=0; i<this.points.length; i++) {
-        config.push(['',
-                   '\<input type=\"text\" value=\"' + this.points[i].name + '\"\>',
-                   '\<input type=\"text\" value=\"' + this.points[i].displayName + '\"\>',
-                   '\<input type=\"text\" value=\"' + this.points[i].units + '\"\>',
-                   '\<input type=\"color\" value=\"' + this.points[i].color + '\"\>',
-                   '\<input type=\"text\" value=\"' + this.points[i].values + '\"\>']); 
-    }
-    
-    var dataObject = {
-      columns: [{
-        title: ""
-      }, {
-        title: "Point Name"
-      }, {
-        title: "Display Name"
-      }, {
-        title: "Units"
-      }, {
-        title: "Color"
-      }, {
-        title: "Values"
-      }],
-      data: config
-    };
-    
-    return dataObject;
-  }
-  
 }
