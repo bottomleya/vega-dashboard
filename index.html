@@ -291,8 +291,9 @@ $('.x').click(function() {
     
 $('#edit_widget_Confirm').click(function() {
     // push table changes to the itemList
-    for each row in table
+   // for each row in table
         pointsObj = [];
+        optionsObj = [];
         getSelectedItem().setPoints(pointsObj);
         getSelectedItem().setOptions(optionsObj);
         getSelectedItem().updateChart();
