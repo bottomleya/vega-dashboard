@@ -48,9 +48,8 @@ class PieChart {
     }
   }
   
-  addPoint(name, displayName, units, colorStr, values) {
-    this.points.push(new Point(name, displayName, units, colorStr, values));
-    this.updateChart();
+  setPoints(pointsObj) {
+    this.points = pointsObj;
   }
   
   parsePoints() {
