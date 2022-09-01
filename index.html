@@ -157,22 +157,8 @@ function add_point_row(pointObj) {
                    '\<input type=\"text\" value=\"' + pointObj.units + '\"\>',
                    '\<input type=\"color\" value=\"' + pointObj.color + '\"\>',
                    '\<input type=\"text\" value=\"' + pointObj.values + '\"\>']; 
-    let columns = [{
-        title: ""
-      }, {
-        title: "Point Name"
-      }, {
-        title: "Display Name"
-      }, {
-        title: "Units"
-      }, {
-        title: "Color"
-      }, {
-        title: "Values"
-      }];
-    
     // push to table
-    editWidgetTable.row.add([{columns: columns, data: rowArray}]).draw(false);
+    editWidgetTable.row.add(rowArray).draw(false);
 }
     
 function add_new_point() {
@@ -182,7 +168,7 @@ function add_new_point() {
                                $('#add_new_point_units')[0].value,
                                $('#add_new_point_color')[0].value,
                                $('#add_new_point_values')[0].value);
-    
+    console.log(new_point);
     add_point_row(new_point);
 }
                                   
