@@ -10,6 +10,7 @@ class PieChart {
     this.title = [];
     
     this.points = [];
+    this.options = {};
     
     this.htmlString = "";
     
