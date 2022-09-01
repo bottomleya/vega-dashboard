@@ -184,15 +184,6 @@ function add_new_point() {
                                $('#add_new_point_values')[0].value);
     
     add_point_row(new_point);
-    
-    for (let i=0; i<itemList.length; i++) {
-        if (itemList[i].item_id == selectedWidget_id) {
-          itemList[i].addPoint(
-          // get newly added point
-          let new_data = itemList[i].getConfig().data[itemList[i].getConfig().data.length-1]
-          editWidgetTable.rows.add([new_data]).draw(false);
-        }
-    }
 }
                                   
 function resetEditWidgetTable() {
@@ -300,6 +291,11 @@ $('.x').click(function() {
     
 $('#edit_widget_Confirm').click(function() {
     // push table changes to the itemList
+    for each row in table
+        pointsObj = [];
+        getSelectedItem().setPoints(pointsObj);
+        getSelectedItem().setOptions(optionsObj);
+        getSelectedItem().updateChart();
 }
     
 </script>
