@@ -69,7 +69,8 @@
         <div class="panel_header">Edit Widget</div>
         <div class="panel_section">
             <table id="edit_widget_table"></table>
-            <button id="edit_widget_ok">OK</button>
+            <button id="edit_widget_Confirm" class="confirm_button">Confirm</button>
+            <button id="edit_widget_Confirm" class="cancel_button">Cancel</button>
         </div>
     </span>
 </div> 
@@ -127,79 +128,6 @@
             
         }
     });
-    const ctx2 = $('#myChart2');
-    const myChart2 = new Chart(ctx2, {
-        type: 'bar',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            },
-            maintainAspectRatio: false
-        }
-    });
-    const pie = $('#myPie');
-    const myPie = new Chart(pie, {
-        type: 'doughnut',
-        data: {
-          labels: [
-            'Red',
-            'Blue',
-            'Yellow'
-          ],
-          datasets: [{
-            label: 'My First Dataset',
-            data: [300, 50, 100],
-            hoverOffset: 4
-          }]
-        }
-    });
-    const pie2 = $('#myPie2');
-    const myPie2 = new Chart(pie2, {
-        type: 'doughnut',
-        data: {
-          labels: [
-            'Red',
-            'Blue',
-            'Yellow'
-          ],
-          datasets: [{
-            label: 'My First Dataset',
-            data: [300, 50, 100],
-            backgroundColor: [
-              'rgb(255, 99, 132)',
-              'rgb(54, 162, 235)',
-              'rgb(255, 205, 86)'
-            ],
-            hoverOffset: 4
-          }]
-        }
-    });
     
 function enableResizers() {
     $('.resizers').unbind("mouseenter mouseleave");
@@ -216,22 +144,50 @@ enableResizers();
 Chart.defaults.global.defaultFontColor = "#fff";
 
 makeResizableDiv('#item1');
-makeResizableDiv('#item2');
-makeResizableDiv('#item3');
-makeResizableDiv('#item4');
     
 itemList = [];
     
 selectedWidget_id = "";
+tempItem = null;
+    
+function add_point_row(pointObj) {
+    let rowArray = ['',
+                   '\<input type=\"text\" value=\"' + pointObj.name + '\"\>',
+                   '\<input type=\"text\" value=\"' + pointObj.displayName + '\"\>',
+                   '\<input type=\"text\" value=\"' + pointObj.units + '\"\>',
+                   '\<input type=\"color\" value=\"' + pointObj.color + '\"\>',
+                   '\<input type=\"text\" value=\"' + pointObj.values + '\"\>']); 
+    let columns = [{
+        title: ""
+      }, {
+        title: "Point Name"
+      }, {
+        title: "Display Name"
+      }, {
+        title: "Units"
+      }, {
+        title: "Color"
+      }, {
+        title: "Values"
+      }];
+    
+    // push to table
+    editWidgetTable.row.add([{columns: columns, data: rowArray}]).draw(false);
+}
     
 function add_new_point() {
-    for (let i=0; i<itemList.length; i++) {
-        if (itemList[i].item_id == selectedWidget_id) {
-          itemList[i].addPoint($('#add_new_point_pointName')[0].value,
+    // build new point from DOM
+    let new_point = new Point($('#add_new_point_pointName')[0].value,
                                $('#add_new_point_displayName')[0].value,
                                $('#add_new_point_units')[0].value,
                                $('#add_new_point_color')[0].value,
                                $('#add_new_point_values')[0].value);
+    
+    add_point_row(new_point);
+    
+    for (let i=0; i<itemList.length; i++) {
+        if (itemList[i].item_id == selectedWidget_id) {
+          itemList[i].addPoint(
           // get newly added point
           let new_data = itemList[i].getConfig().data[itemList[i].getConfig().data.length-1]
           editWidgetTable.rows.add([new_data]).draw(false);
@@ -300,17 +256,24 @@ $('#enable_select-edit').click(function() {
     
 })
     
-function createEditWidgetTable() {
-    // setup form based on item clicked
-    resetEditWidgetTable();
+function getSelectedItem() {
+    let selectedItem = null;
     for (let i=0; i<itemList.length; i++) {
         if (itemList[i].item_id == selectedWidget_id) {
-          var dataObject = itemList[i].getConfig();
-          if (dataObject.data.length > 0) {
-              editWidgetTable.rows.add(dataObject.data).draw(true);
-          }
+            selectedItem = itemList[i];
         }
     }
+    return selectedItem;
+}
+    
+function createEditWidgetTable() {
+    resetEditWidgetTable();
+    selectedItem = getSelectedItem();
+    // build table of points
+    for (let i=0; i<selectedItem.points.length; i++) {
+        add_point_row(selectedItem.points[i]);
+    }
+    tempItem = Object.assign({}, selectedItem);
     $('#edit_widget_container').toggleClass('hidden');
 }
 
@@ -334,6 +297,10 @@ $('#add_pie_chart_button').click(function() {
 $('.x').click(function() {
     $(this).closest('div[class=item]').remove();
 })
+    
+$('#edit_widget_Confirm').click(function() {
+    // push table changes to the itemList
+}
     
 </script>
       
