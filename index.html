@@ -82,8 +82,6 @@ var spec = {
   "description": "A simple pie chart with embedded data.",
   "background": "303030",
   "padding": 5,
-  "width": 400,
-  "height": 400,
   autosize: {type:'fit',resize:true,},
   "data": [
     {
@@ -193,19 +191,19 @@ if (vegaDef.responsive) {
    
 //document.querySelector('#donut-chart-svg').addEventListener('click', image(view, 'svg'));
 
-    // create new grid layout
-    var grid = new Muuri('.grid', {
-        dragEnabled: true,
-          dragStartPredicate: function (item, e) {
-            grid.refreshItems();
-            grid.layout();
-            if (e.type != "move" && e.target.classList.contains("chartjs-render-monitor")) {
-              return true;
-            }
-            // save sort order
-              saveOrder();
-          },
-    });
+// create new grid layout
+var grid = new Muuri('.grid', {
+    dragEnabled: true,
+      dragStartPredicate: function (item, e) {
+        grid.refreshItems();
+        grid.layout();
+        if (e.type != "move" && e.target.classList.contains("chartjs-render-monitor")) {
+          return true;
+        }
+        // save sort order
+          saveOrder();
+      },
+});
         
    
     
