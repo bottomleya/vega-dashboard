@@ -78,6 +78,7 @@ body {
   z-index: 1;
   background: #303030;
   color: #A0A0A0;
+  width: 30%;
 }
 .item:hover {
     cursor: pointer;
