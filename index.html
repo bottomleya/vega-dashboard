@@ -82,9 +82,9 @@ var spec = {
   "description": "A simple pie chart with embedded data.",
   "background": "303030",
   "padding": 5,
-  "width": "container",
-  "height": 250,
-  "autosize": "pad",
+  "width": 400,
+  "height": 400,
+  autosize: {type:'fit',resize:true,},
   "data": [
     {
       "name": "data_table",
@@ -153,13 +153,44 @@ var spec = {
   ]
 }
 
-
+const vegaDef = {
+  renderType: 'svg', // 'canvas',
+  responsive: true,
+  widthHeightRatio: spec.width / spec.height,
+  wrapperElem: document.querySelector('#donut-chart'),
+};
+    
 var view = new vega.View(vega.parse(spec), {
   loader: vega.loader({baseURL: '/vega/'}),
   logLevel: vega.Warn,
-  renderer: 'svg'
+  renderer: vegaDef.renderType
 }).initialize('#donut-chart').hover().run();
 
+// If responsive
+if (vegaDef.responsive) {
+  if (vegaDef.renderType === 'canvas') {
+    // For Canvas views
+    vegaDef.resize = () => {
+      const width = vegaDef.wrapperElem.offsetWidth;
+      vegaDef.view
+      .width(width)
+      .height(width / vegaDef.widthHeightRatio)
+      .run();
+    };
+    window.addEventListener('resize', vegaDef.resize);
+  } else {
+    // For SVG views
+    function responsive() {
+      // Remove width/height attributes of Vega SVG and let viewBox handle the responsive behavior
+      const viewDom = vegaDef.wrapperElem.firstElementChild;
+      viewDom.removeAttribute('width');
+      viewDom.removeAttribute('height');
+      viewDom.style.width = '100%';
+    }
+    responsive();
+  }
+} 
+   
 document.querySelector('#donut-chart-svg').addEventListener('click', image(view, 'svg'));
 
     // create new grid layout
