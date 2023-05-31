@@ -36,7 +36,7 @@
         </div>
         
         <div class="header">
-            <a class="honeywell"> Honeywell | Operational Analyitics</a> <a class="text">  </a>
+            <a class="honeywell"> Honeywell | Operational Analytics</a> <a class="text">  </a>
         </div>
             
         
@@ -161,89 +161,7 @@ itemList = [];
 selectedWidget_id = "";
 tempItem = null;
     
-function add_point_row(pointObj) {
-    let rowArray = ['',
-                   '\<input type=\"text\" value=\"' + pointObj.name + '\"\>',
-                   '\<input type=\"text\" value=\"' + pointObj.displayName + '\"\>',
-                   '\<input type=\"text\" value=\"' + pointObj.units + '\"\>',
-                   '\<input type=\"color\" value=\"' + pointObj.color + '\"\>',
-                   '\<input type=\"text\" value=\"' + pointObj.values + '\"\>']; 
-    // push to table
-    editWidgetTable.row.add(rowArray).draw(false);
-}
-    
-function add_new_point() {
-    // build new point from DOM
-    let new_point = new Point($('#add_new_point_pointName')[0].value,
-                               $('#add_new_point_displayName')[0].value,
-                               $('#add_new_point_units')[0].value,
-                               $('#add_new_point_color')[0].value,
-                               $('#add_new_point_values')[0].value);
-    console.log(new_point);
-    add_point_row(new_point);
-}
-                                  
-function resetEditWidgetTable() {
-    if ($.fn.DataTable.isDataTable('#edit_widget_table')) {
-        editWidgetTable = $('#edit_widget_table').DataTable();
-        editWidgetTable.destroy();
-    }
-        
-    let data = [['\<i id=\"add_new_point_button\" onclick=\"add_new_point()\" class=\"action_button fa-solid fa-circle-plus\"\>\<\/i\>',
-                 '\<input id=\"add_new_point_pointName\" type=\"text\" value=\"\"\>',
-                 '\<input id=\"add_new_point_displayName\" type=\"text\" value=\"\"\>',
-                 '\<input id=\"add_new_point_units\" type=\"text\" value=\"\"\>',
-                 '\<input id=\"add_new_point_color\" type=\"color\" value=\"\#FFFFFF\"\>',
-                 '\<input id=\"add_new_point_values\" type=\"text\" value=\"\"\>']];
-  let columns = [{
-        title: ""
-      }, {
-        title: "Point Name"
-      }, {
-        title: "Display Name"
-      }, {
-        title: "Units"
-      }, {
-        title: "Color"
-      }, {
-        title: "Values"
-      }];
-    
-    $('#edit_widget_table').dataTable({
-        "columns": columns,
-        "data": data
-    });
-}
-$(document).ready(function() {
-    resetEditWidgetTable();
-    editWidgetTable = $('#edit_widget_table').DataTable();
-})
-                         
-$('.blur_backdrop').click(function() {
-    resetLayout();
-})
-    
-function resetLayout() {
-    $('#add_new_widget_container').addClass('hidden');
-    $('#edit_widget_container').addClass('hidden');
-    $('.resizers').addClass('inactive');
-    $('.item').removeClass('select-edit-active');
-    $('.item').prop("onclick", null).off("click");
-}
-    
-$('#enable_select-edit').click(function() {
-    $('.resizers').toggleClass('inactive');
-    $('.item').toggleClass('select-edit-active');
-    
-    $('.item').click(function() {
-        // reset widget table
-        selectedWidget_id = this.id;
-        createEditWidgetTable();
-        
-    })
-    
-})
-    
+ 
 function getSelectedItem() {
     let selectedItem = null;
     for (let i=0; i<itemList.length; i++) {
@@ -254,16 +172,6 @@ function getSelectedItem() {
     return selectedItem;
 }
     
-function createEditWidgetTable() {
-    resetEditWidgetTable();
-    selectedItem = getSelectedItem();
-    // build table of points
-    for (let i=0; i<selectedItem.points.length; i++) {
-        add_point_row(selectedItem.points[i]);
-    }
-    tempItem = Object.assign({}, selectedItem);
-    $('#edit_widget_container').toggleClass('hidden');
-}
 
 function saveOrder() {
     for (let i=0; i<itemList.length; i++) {
@@ -284,16 +192,6 @@ $('#add_pie_chart_button').click(function() {
     
 $('.x').click(function() {
     $(this).closest('div[class=item]').remove();
-})
-    
-$('#edit_widget_Confirm').click(function() {
-    // push table changes to the itemList
-   // for each row in table
-        pointsObj = [];
-        optionsObj = [];
-        getSelectedItem().setPoints(pointsObj);
-        getSelectedItem().setOptions(optionsObj);
-        getSelectedItem().updateChart();
 })
     
 </script>
