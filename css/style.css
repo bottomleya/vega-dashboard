@@ -212,9 +212,11 @@ body {
     color: #DCDCDC;
     font-size: 5vw;
     display: block;
-    padding: 10px;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    padding-left: 50px;
     border-radius: 0px;
-    margin: 20px;
+    margin: 0px;
 }
 #header_input {
     background-color: transparent;
