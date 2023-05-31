@@ -67,8 +67,7 @@
         </div>
         
     <div id="grid" class="grid">
-         
-        
+        <canvas id="myChart"></canvas>
     </div>
     
         
@@ -105,7 +104,7 @@
           },
     });
         
-    var ctx = $('#myChart');
+    const ctx = $('#myChart');
     const myChart = new Chart(ctx, {
         type: 'bar',
         data: {
