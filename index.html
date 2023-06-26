@@ -42,7 +42,7 @@
         </div>
         <div class="grid">
            <div id="tile-01" class="tile">     
-               <div id="bar-chart" class="chart"></div>
+               <div id="bar-chart" class="chart" style="width:500px; height:500px"></div>
             </div>   
         </div>
         
@@ -56,9 +56,9 @@
 
     function render(spec) {
       view = new vega.View(vega.parse(spec), {
-        renderer:  'canvas',  // renderer (canvas or svg)
-        container: '#bar-chart',   // parent DOM container
-        hover:     true       // enable hover processing
+        renderer:  'canvas',                      // renderer (canvas or svg)
+        container: '#bar-chart',                   // parent DOM container
+        hover:     true                           // enable hover processing
       });
       return view.runAsync();
     }
