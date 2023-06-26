@@ -37,6 +37,7 @@ body {
     padding-left: 80px;
     border-radius: 0px;
     margin: 0px;
+    height: 80px;
 }
 #header_input {
     background-color: transparent;
@@ -71,8 +72,8 @@ body {
     background-color: transparent;
     color: #DCDCDC;
     border: 0px solid #4286f4;
-    margin: 5px;
-    padding: 1px;
+    margin: 0px;
+    padding: 0px;
     font-size: 25px;
     cursor: pointer;
 }
