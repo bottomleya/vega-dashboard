@@ -13,21 +13,12 @@
         <link rel="stylesheet" href="css/jquery-ui.css">
 
         <script src="js/jquery-3.5.1.js"></script>
-        <script src="js/jquery.dataTables.min.js"></script>
-        <script src="js/jquery-confirm.min.js"></script>
-        <script src="js/dom-checkbox.js"></script>
-        <script src="js/jquery-sortSections.js"></script>
-        <script src="js/muuri.min.js"></script>
         <script src="js/web-animations.min.js"></script>
-        <script src="js/Chart.min.js"></script>
         <script src="js/fontawesome.min.js"></script>
-        <script src="js/makeResizableDiv.js"></script>
         <script src="js/jquery-ui.js"></script>
         <script src="js/vega.min.js"></script>
         <script src="js/jquery.ui.resizable.snap.ext.js"></script>
         
-        <script src="js/PieChart.js"></script>
-        <script src="js/Point.js"></script>
 
         <title>Grid Dashboard</title>
         
@@ -40,229 +31,37 @@
         </div>
         
         <div class="header">
-            <a class="honeywell"> Placeholder | Operational Analytics</a> <a class="text">  </a>
+            <a class="honeywell"> Grid Dashboard | Operational Analytics</a> <a class="text">  </a>
         </div>
             
         
          <div id="header">
             <input id="header_input" placeholder="New Dashboard">
-            <div id="action_bar">
-                <div id="widget_bar" class="bounding_box">
-                    <div class="dropdown_button">
-                        <button title="Add new widget" class="action_button" id="add_widget"><i class="fa fa-square-plus"></i></button>
-                        <div class="dropdown_content">
-                            <li><i class="fa fa-chart-simple"></i>&emsp;Column</li>
-                            <li id="add_pie_chart_button"><i class="fa fa-chart-pie"></i>&emsp;Pie</li>
-                            <li><i class="fa fa-arrow-up-right-dots"></i>&emsp;Scatter</li>
-                        </div>
-                    </div>
-                    <button title="Enable Select-Edit" class="action_button" id="enable_select-edit"><i class="fa fa-pen-to-square"></i></button>
-                </div>
-                <div id="dashboard_bar" class="bounding_box">
-                    <button title="Create New Dashboard" class="action_button" id="new_dashboard"><i class="fa fa-arrow-up-right-from-square"></i></button>
-                    <button title="Save Dashboard" class="action_button" id="save_dashboard"><i class="fa fa-floppy-disk"></i></button>
-                    <button title="Delete Dashboard" class="action_button" id="delete_dashboard"><i class="fa fa-trash"></i></button>
-                    <button title="Dashboard Menu" class="action_button" id="dashboard_menu"><i class="fa fa-bars"></i></button>
-                </div>
-            </div>
+            <div id="action_bar"></div>
         </div>
-   <div id="tile-01" class="tile">     
-       <div id="donut-chart" class="chart"></div>
-    </div>   
+        <div class="grid">
+           <div id="tile-01" class="tile">     
+               <div id="bar-chart" class="chart"></div>
+            </div>   
+        </div>
         
 <script>
- 
-var spec = {
-  "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "description": "A simple pie chart with embedded data.",
-  "background": "303030",
-  "padding": 5,
-  autosize: {type:'fit',resize:true,},
-  "data": [
-    {
-      "name": "data_table",
-      "values": [
-        {"category": "Cameras", "amount": 40},
-        {"category": "Access Readers", "amount": 36},
-        {"category": "Perimeter Fence", "amount": 10},
-        {"category": "Intercom", "amount": 9}
-      ],
-      "transform": [
-        {
-          "type": "pie",
-          "field": "amount"
-        }
-      ]
+ <script type="text/javascript">
+    var view;
+
+    fetch('https://vega.github.io/vega/examples/bar-chart.vg.json')
+      .then(res => res.json())
+      .then(spec => render(spec))
+      .catch(err => console.error(err));
+
+    function render(spec) {
+      view = new vega.View(vega.parse(spec), {
+        renderer:  'canvas',  // renderer (canvas or svg)
+        container: '#bar-chart',   // parent DOM container
+        hover:     true       // enable hover processing
+      });
+      return view.runAsync();
     }
-  ],
-  "marks": [
-    {
-      "name": "mark_arc",
-      "type": "arc",
-      "from": {"data": "data_table"},
-      "encode": {
-        "enter": {
-          "fill": {"scale": "color", "field": "category"},
-          "x": {"signal": "width / 2"},
-          "y": {"signal": "height / 2"},
-          "outerRadius": {"signal": "min(width,height) / 2"},
-          "innerRadius": {"value": 0},
-          "startAngle": {"field": "startAngle"},
-          "endAngle": {"field": "endAngle"}
-        }
-      }
-    }
-  ],
-  "scales": [
-    {
-      "name": "color",
-      "type": "ordinal",
-      "domain": {"data": "data_table", "field": "category"},
-      "range":  {"scheme": "set1"}
-    },
-    {
-      "name": "scale_legend_values",
-      "type": "ordinal",
-      "domain": {"data": "data_table", "field": "category"},
-      "range":  {"data": "data_table", "field": "amount"}
-    }
-  ],
-  "legends": [
-    {
-      "labelFont": "Arial",
-      "labelFontSize": 12,
-      "labelColor": "#B2B2B2",
-      "symbolType": "square",
-      "fill": "color",
-      "title": "Legend",
-      "titleColor": "white",
-      "titleFontSize": 15,
-      "encode": {
-        "labels": {
-          "update": {"text": {"signal": "datum.label"}}
-        }
-      }
-    }
-  ]
-}
-
-const vegaDef = {
-  renderType: 'svg', // 'canvas',
-  responsive: true,
-  widthHeightRatio: spec.width / spec.height,
-  wrapperElem: document.querySelector('#donut-chart'),
-};
-    
-var view = new vega.View(vega.parse(spec), {
-  loader: vega.loader({baseURL: '/vega/'}),
-  logLevel: vega.Warn,
-  renderer: vegaDef.renderType
-}).initialize('#donut-chart').hover().run();
-
-// If responsive
-if (vegaDef.responsive) {
-  if (vegaDef.renderType === 'canvas') {
-    // For Canvas views
-    vegaDef.resize = () => {
-      const width = vegaDef.wrapperElem.offsetWidth;
-      vegaDef.view
-      .width(width)
-      .height(width / vegaDef.widthHeightRatio)
-      .run();
-    };
-    window.addEventListener('resize', vegaDef.resize);
-  } else {
-    // For SVG views
-    function responsive() {
-      // Remove width/height attributes of Vega SVG and let viewBox handle the responsive behavior
-      const viewDom = vegaDef.wrapperElem.firstElementChild;
-      viewDom.removeAttribute('width');
-      viewDom.removeAttribute('height');
-      viewDom.style.width = '100%';
-    }
-    responsive();
-  }
-} 
-      
-//document.querySelector('#donut-chart-svg').addEventListener('click', image(view, 'svg'));
-
-// create new grid layout
-var grid = new Muuri('.grid', {
-    dragEnabled: true,
-      dragStartPredicate: function (item, e) {
-        grid.refreshItems();
-        grid.layout();
-        if (e.type != "move" && e.target.classList.contains("chartjs-render-monitor")) {
-          return true;
-        }
-        // save sort order
-          saveOrder();
-      },
-});
-        
-   
-    
-function enableResizers() {
-    $('.resizers').unbind("mouseenter mouseleave");
-    $('.resizers').hover(function() {
-        $(this).toggleClass('inactive');
-        $(this).find('.resizer').toggleClass('hidden');
-        //$(this).find('.x').toggleClass('hidden');
-    });
-}
-
-enableResizers();
-    
- makeResizableDiv('#item1');
-    
-Chart.defaults.global.defaultFontColor = "#fff";
-
-
-(function ($) {
-    $(document).ready(function () {
-        $('.box').draggable({snap:true}).resizable({
-          snap: true,
-          handles: 'all'
-        });
-    });
-})(jQuery);
-
-    
-itemList = [];
-    
-selectedWidget_id = "";
-tempItem = null;
- 
-function getSelectedItem() {
-    let selectedItem = null;
-    for (let i=0; i<itemList.length; i++) {
-        if (itemList[i].item_id == selectedWidget_id) {
-            selectedItem = itemList[i];
-        }
-    }
-    return selectedItem;
-}
-    
-
-function saveOrder() {
-    for (let i=0; i<itemList.length; i++) {
-        itemList[i].saveOrder();
-    }
-}
-    
-$('.close_button').click(function() {
-    resetLayout();
-})
-    
-$('#add_pie_chart_button').click(function() {
-    let newChart = new PieChart("id" + (new Date()).getTime())
-    itemList.push(newChart);
-    selectedWidget_id = newChart.item_id;
-})
-    
-$('.x').click(function() {
-    $(this).closest('div[class=item]').remove();
-})
     
 </script>
       
